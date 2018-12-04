@@ -6,10 +6,13 @@
     <string name="username_label">Username</string>
     <string name="password_label">Password</string>
     <string name="login_label">LOGIN</string>
+    <string name="login_label_info_header">Sign in</string>
+    <string name="login_label_info">Sebelum menggunakan app ini </string>
     <string name="daftar_label">Daftar</string>
     <!-- Loigin -->
     <string name="login_welcome_label">Welcome</string>
     <string name="login_appname_label">Agenda Maker</string>
     <string name="login_appdesc_label">Make your day more efficient than ever ! </string>
     <string name="login_appdesc_label_2">Adli Raihan _ 0616101001</string>
+    <string name="login_register_label">Daftar ?</string>
 </resources>
