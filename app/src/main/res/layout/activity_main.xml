@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <LinearLayout
+        android:layout_width="1080dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        android:gravity="center|bottom"
+        android:layout_gravity="center"
+        android:foregroundGravity="center"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@color/colorPrimaryDark_Opacity1"
+                android:contentDescription="Background" />
+            <LinearLayout
+                android:id="@+id/Header_Login"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:gravity="center"
+                android:foregroundGravity="center"
+                android:orientation="vertical"
+                android:padding="50dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/scriptuitbl"
+                        android:text="@string/login_welcome_label"
+                        android:textColor="@color/colorAccent_2"
+                        android:textSize="48dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/segoeui"
+                        android:text="@string/login_appname_label"
+                        android:textColor="@color/colorAccent_2"
+                        android:textSize="16dp" />
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="2dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/colorAccent_2" />
+                    <TextView
+                        android:layout_width="138dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login_appdesc_label"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent_2" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/login_appdesc_label_2"
+                        android:textColor="@android:color/white"
+                        android:textSize="8dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/buttonActivity_Login"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/register_button"
+                        android:gravity="center|bottom"
+                        android:foregroundGravity="bottom"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_angle_right" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

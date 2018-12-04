@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/unsplash_bg_thrower"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center">
+    <TextView
+        android:background="@color/colorPrimaryDark_Opacity1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/scriptuitbl"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="56dp"
+        android:text="@string/login_welcome_label"/>
+</LinearLayout>
