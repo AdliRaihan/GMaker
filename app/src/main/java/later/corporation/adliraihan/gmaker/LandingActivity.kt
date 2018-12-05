@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_landing_recycler_parent.*
 import later.corporation.adliraihan.gmaker.adapter.MyRecyclerAdapter
 
 class LandingActivity : AppCompatActivity(){
@@ -13,6 +14,7 @@ class LandingActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_landing_recycler_parent)
+
         var ArraySuperNama = resources.getStringArray(R.array.taskList)
         viewManager = LinearLayoutManager(this)
         viewAdapter = MyRecyclerAdapter(ArraySuperNama)
@@ -21,5 +23,19 @@ class LandingActivity : AppCompatActivity(){
             layoutManager = viewManager
             adapter = viewAdapter
         }
+        ScrollBarLandingUserLayout.smoothScrollTo(0,0)
     }
+/*
+    override fun isActivityTransitionRunning(): Boolean {
+        var ArraySuperNama = resources.getStringArray(R.array.taskList)
+        viewManager = LinearLayoutManager(this)
+        viewAdapter = MyRecyclerAdapter(ArraySuperNama)
+        recyclerView = findViewById<RecyclerView>(R.id.RecyclerMe).apply {
+
+            layoutManager = viewManager
+            adapter = viewAdapter
+        }
+        return super.isActivityTransitionRunning()
+    }
+    */
 }

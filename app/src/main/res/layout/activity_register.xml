@@ -23,7 +23,7 @@
                 android:fontFamily="@font/scriptuitbl"
                 android:gravity="center"
                 android:textColor="@color/colorAccent"
-                android:textSize="56dp"
+                android:textSize="28dp"
                 android:text="@string/daftar_label"
                 android:layout_marginBottom="20dp"/>
             <EditText
@@ -32,8 +32,9 @@
                 android:paddingHorizontal="40dp"
                 android:paddingVertical="10dp"
                 android:hint="@string/hint_daftar_username"
-                android:background="@drawable/border_white_radius100"
+                android:background="@drawable/background_solid_radius100_outline"
                 android:layout_width="match_parent"
+                android:textColorHint="@color/colorDawnBlue"
                 android:textSize="12dp"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"/>
@@ -46,7 +47,8 @@
                 android:paddingVertical="10dp"
                 android:textSize="12dp"
                 android:hint="@string/hint_daftar_password"
-                android:background="@drawable/border_white_radius100"
+                android:background="@drawable/background_solid_radius100_outline"
+                android:textColorHint="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <Button
