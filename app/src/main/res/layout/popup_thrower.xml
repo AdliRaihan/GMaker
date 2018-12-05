@@ -46,7 +46,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/scriptuitbl"
-                        android:text="@string/login_welcome_label"
+                        android:text="@string/hello_label"
                         android:textColor="@color/colorAccent_2"
                         android:textSize="48dp" />
                     <TextView
@@ -54,7 +54,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/segoeui"
-                        android:text="@string/login_appname_label"
+                        android:text="@string/login_popup_desc"
                         android:textColor="@color/colorAccent_2"
                         android:textSize="16dp" />
                     <ImageView
@@ -63,39 +63,24 @@
                         android:layout_marginBottom="10dp"
                         android:background="@color/colorAccent_2" />
                     <TextView
-                        android:layout_width="138dp"
+                        android:id="@+id/developer_btn"
+                        android:layout_width="300dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/login_appdesc_label"
+                        android:text="@string/login_popup_option_1"
                         android:textAlignment="center"
+                        android:padding="10dp"
+                        android:background="@drawable/border_white_radius100_outline"
                         android:textColor="@color/colorAccent_2" />
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/developer_btn_2"
+                        android:layout_width="300dp"
+                        android:paddingVertical="10dp"
+                        android:background="@drawable/border_white_radius100"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/login_appdesc_label_2"
-                        android:textColor="@android:color/white"
-                        android:textSize="8dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:id="@+id/buttonActivity_Login"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="bottom"
-                        android:background="@drawable/register_button"
-                        android:gravity="center|bottom"
-                        android:foregroundGravity="bottom"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:layout_width="15dp"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_angle_right" />
-                    </LinearLayout>
+                        android:layout_marginTop="15dp"
+                        android:text="@string/login_popup_option_2"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent_2" />
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>

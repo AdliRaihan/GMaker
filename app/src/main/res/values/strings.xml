@@ -3,6 +3,7 @@
 
 
     <!-- global -->
+    <string name="hello_label">Hello </string>
     <string name="username_label">Username</string>
     <string name="password_label">Password</string>
     <string name="login_label">LOGIN</string>
@@ -15,4 +16,27 @@
     <string name="login_appdesc_label">Make your day more efficient than ever ! </string>
     <string name="login_appdesc_label_2">Adli Raihan _ 0616101001</string>
     <string name="login_register_label">Daftar ?</string>
+    <!-- PopUP-->
+    <string name="login_popup_header_beta">Developer</string>
+    <string name="login_popup_header">Hello</string>
+    <string name="login_popup_desc">Siapa anda ?</string>
+    <string name="login_popup_option_1">Saya Developer</string>
+    <string name="login_popup_option_2">Saya Bukan Developer</string>
+
+    <!-- Daftar -->
+    <string name="hint_daftar_username">Username Anda</string>
+    <string name="hint_daftar_password">Password Anda</string>
+    <string name="daftar_label_header">Daftar</string>
+
+    <!-- Temp -->
+    <string-array name="taskList">
+        <item>Gaji 1</item>
+        <item>Gaji 2</item>
+        <item>Gaji 3</item>
+        <item>Gaji 4</item>
+        <item>Gaji 6</item>
+        <item>Beli Anak5</item>
+    </string-array>
+
+
 </resources>

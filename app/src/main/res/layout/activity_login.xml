@@ -43,7 +43,7 @@
                     android:background="@color/colorPrimaryDark"/>
                 <LinearLayout
                     android:layout_width="300dp"
-                    android:background="@color/colorDawn"
+                    android:background="@drawable/border_radius_20"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center"
@@ -74,24 +74,28 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:paddingVertical="20dp"
+                        android:paddingVertical="2dp"
                         android:gravity="center">
                         <EditText
                             android:id="@+id/username_Input"
                             android:layout_width="match_parent"
+                            android:textColorHint="@color/colorAccent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/login_background_gradient"
+                            android:background="@drawable/border_white_radius100"
                             android:layout_marginVertical="5dp"
                             android:inputType="textEmailAddress"
                             android:hint="@string/username_label"
                             android:textSize="12dp"
+                            android:textColor="@color/colorDawnBlue"
                             android:paddingVertical="8dp"
                             android:paddingHorizontal="20dp"/>
                         <EditText
                             android:id="@+id/password_Input"
                             android:layout_width="match_parent"
+                            android:textColorHint="@color/colorAccent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/login_background_gradient"
+                            android:textColor="@color/colorDawnBlue"
+                            android:background="@drawable/border_white_radius100"
                             android:layout_marginVertical="5dp"
                             android:inputType="textPassword"
                             android:hint="@string/password_label"
@@ -106,12 +110,13 @@
                             android:text="@string/login_label"
                             android:textColor="@color/colorDawnBlue"/>
                         <TextView
+                            android:id="@+id/daftar_txt_btn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
                             android:gravity="right"
                             android:text="@string/login_register_label"
-                            android:textColor="@color/colorDawnBlue"
-                            android:paddingVertical="10dp"/>
+                            android:textColor="@color/colorDawnBlue"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
