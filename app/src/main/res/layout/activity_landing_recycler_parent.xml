@@ -23,7 +23,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="500dp"
-                    android:background="@mipmap/unsplash_bg_thrower"/>
+                    android:background="@drawable/bg"/>
                 <LinearLayout
                     android:focusedByDefault="true"
                     android:orientation="vertical"

@@ -1,5 +1,6 @@
 package later.corporation.adliraihan.gmaker
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         var Tags = "MainActivity"
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_thrower)
+
 
         //Thrower ke First Run APP [Update Later]
         var InterGlobal = Intent(this, FirstRunActivity::class.java)

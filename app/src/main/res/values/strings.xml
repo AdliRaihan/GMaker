@@ -19,9 +19,9 @@
     <!-- PopUP-->
     <string name="login_popup_header_beta">Developer</string>
     <string name="login_popup_header">Hello</string>
-    <string name="login_popup_desc">Siapa anda ?</string>
-    <string name="login_popup_option_1">Saya Developer</string>
-    <string name="login_popup_option_2">Saya Bukan Developer</string>
+    <string name="login_popup_desc">Masuk Developer Mode ?</string>
+    <string name="login_popup_option_1">Ya</string>
+    <string name="login_popup_option_2">Tidak</string>
 
     <!-- Daftar -->
     <string name="hint_daftar_username">Username Anda</string>
@@ -29,17 +29,35 @@
     <string name="daftar_label_header">Daftar</string>
 
 
+    <string name="lorem_ipsum_sm">Lorem Ipsum Bachelor</string>
+    <string name="Details_header_label">Agenda</string>
     <!-- Landing -->
     <string name="landing_activity_agenda_label_1">Current Agenda</string>
     <string name="landing_activity_agenda_label_2">Today Agenda</string>
-<!-- Temp -->
+    <!-- Temp -->
     <string-array name="taskList">
-        <item>Gaji 1</item>
-        <item>Gaji 2</item>
-        <item>Gaji 3</item>
-        <item>Gaji 4</item>
-        <item>Gaji 6</item>
-        <item>Beli Anak5</item>
+        <item>Kuliah</item>
+        <item>Beli Arduino</item>
+        <item>Gaji Asisten Dosen</item>
+        <item>Pulang Kerumah</item>
+        <item>Tidur</item>
+    </string-array>
+    <string-array name="taskInfo">
+        <item>
+            Kuliah Dari Pagi Sampai Malam .
+        </item>
+        <item>
+            Harga Arduino Rp 350.000 pembayaran lewat tokopedia via indomaret
+        </item>
+        <item>
+            Pengambilan gaji asisten di A3
+        </item>
+        <item>
+            Pulang kerumah dan mengerjakan sesuatu yang belum di kerjakan.
+        </item>
+        <item>
+            Jam 11.59 PM minimal sudah tidur.
+        </item>
     </string-array>
 
 

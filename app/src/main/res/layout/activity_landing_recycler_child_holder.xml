@@ -6,39 +6,67 @@
     android:padding="20dp">
     <LinearLayout
         android:orientation="horizontal"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/shadow_sm"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/imgHolderme"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg"/>
+                android:src="@drawable/bg"
+                android:padding="0dp"
+                android:scaleType="fitXY"/>
             <LinearLayout
+                android:id="@+id/taskListButton"
                 android:padding="20dp"
-                android:orientation="vertical"
-                android:gravity="center|left"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimaryDark_Opacity1">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lorem Ipsum"
-                    android:textColor="@android:color/white"
-                    android:id="@+id/text_Recycler_1"/>
-                <TextView
-                    android:textSize="32dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rp. 27.500.000"
-                    android:textColor="@android:color/white"
-                    android:id="@+id/text_Recycler_2"/>
+                <LinearLayout
+                    android:gravity="center|left"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:gravity="center|left"
+                        android:layout_width="250dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Lorem Ipsum"
+                            android:textSize="32dp"
+                            android:textColor="@android:color/white"
+                            android:id="@+id/text_Recycler_1"/>
+                        <TextView
+                            android:textSize="12dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Info Thread"
+                            android:textColor="@android:color/white"
+                            android:id="@+id/text_Recycler_2"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="right|top"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textSize="16dp"
+                            android:fontFamily="@font/segoeui"
+                            android:textColor="@color/colorDawnBlue"
+                            android:id="@+id/text_Recycler_3"/>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
-
     </LinearLayout>
 </LinearLayout>
