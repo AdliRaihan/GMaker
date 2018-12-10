@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.activity_landing_recycler_child_holder.*
 import later.corporation.adliraihan.gmaker.LandingActivity
 import later.corporation.adliraihan.gmaker.R
+import later.corporation.adliraihan.gmaker.database_function
 import okhttp3.*
 import org.json.JSONArray
 import java.io.IOException
@@ -23,7 +24,7 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_details)
         var Id = getBundles()
         setImage(getBundlesImages())
-        getData(LandingActivity.baseUrl.best_uri + "/server_config/selected.php?id=" + Id)
+        getData(database_function.coreURL.url + "/server_config/selected.php?id=" + Id)
     }
     fun getBundles(): String{
         var xBundles = getIntent().extras

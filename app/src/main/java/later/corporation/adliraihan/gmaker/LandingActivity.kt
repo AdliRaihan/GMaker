@@ -18,37 +18,42 @@ import org.json.JSONObject
 import java.io.IOException
 import java.lang.Exception
 import java.security.Policy
+import java.util.concurrent.TimeUnit
 
 class LandingActivity : AppCompatActivity(){
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
 
-
-    object baseUrl{
-        val best_uri = "http://192.168.10.24:81";
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_landing_recycler_parent)
-        run(baseUrl.best_uri)
         ScrollBarLandingUserLayout.smoothScrollTo(0,0)
+        run(database_function.coreURL.url_showagenda)
     }
 
     fun run(baseUri:String) : String {
         var okHetepe = OkHttpClient()
+            .newBuilder()
+            .connectTimeout(10,TimeUnit.SECONDS)
+            .readTimeout(10,TimeUnit.SECONDS)
+            .writeTimeout(10,TimeUnit.SECONDS)
+            .build()
         val request = Request.Builder().url(baseUri).build()
         okHetepe.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 e.printStackTrace()
-                Toast.makeText(applicationContext,e.toString(),Toast.LENGTH_SHORT).show()
+                runOnUiThread{
+                    userInteraction.FailedInit = true
+                    onUserInteraction()
+                }
             }
             override fun onResponse(call: Call, response: Response) {
                 if(!response.isSuccessful){
                     throw IOException("Unexpected code " + response)
                 }
                 runOnUiThread {
+                    userInteraction.FailedInit = false
                     var policyAllowed = StrictMode.ThreadPolicy.Builder().permitAll().build()
                     StrictMode.setThreadPolicy(policyAllowed)
                     //Policy Added Agar Kita semua Hepi Hepi ajah
@@ -93,36 +98,26 @@ class LandingActivity : AppCompatActivity(){
                     }
                 }
             }
-
         })
-
-
-
-        /*
-        try {
-            OkHttpClient client = new OkHttpClient();
-            Request request = new Request.Builder()
-                    .url(urls[0])
-                    .build();
-            Response responses = null;
-
-            try {
-                responses = client.newCall(request).execute();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            String jsonData = responses.body().string();
-            JSONObject Jobject = new JSONObject(jsonData);
-            JSONArray Jarray = Jobject.getJSONArray("employees");
-
-            for (int i = 0; i < Jarray.length(); i++) {
-                JSONObject object     = Jarray.getJSONObject(i);
-            }
-        }
-        */
         return "nothing";
     }
 
+    object userInteraction{
+        var FailedInit:Boolean? = false
+    }
+    override fun onUserInteraction() {
+        //super.onUserInteraction()
+        Toast.makeText(baseContext,"Interaction",Toast.LENGTH_SHORT).show()
+        if(userInteraction.FailedInit == true){
+            Toast.makeText(baseContext,resources.getString(R.string.error_1_id),Toast.LENGTH_SHORT).show();userInteraction.FailedInit = false
+            run(database_function.coreURL.url);
+        }
+    }
 
+    override fun onUserLeaveHint() {
+        //super.onUserLeaveHint()
+        userInteraction.FailedInit = false
+        Toast.makeText(baseContext,"Leave",Toast.LENGTH_SHORT).show()
+    }
 
 }

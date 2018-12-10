@@ -35,30 +35,8 @@
     <string name="landing_activity_agenda_label_1">Current Agenda</string>
     <string name="landing_activity_agenda_label_2">Today Agenda</string>
     <!-- Temp -->
-    <string-array name="taskList">
-        <item>Kuliah</item>
-        <item>Beli Arduino</item>
-        <item>Gaji Asisten Dosen</item>
-        <item>Pulang Kerumah</item>
-        <item>Tidur</item>
-    </string-array>
-    <string-array name="taskInfo">
-        <item>
-            Kuliah Dari Pagi Sampai Malam .
-        </item>
-        <item>
-            Harga Arduino Rp 350.000 pembayaran lewat tokopedia via indomaret
-        </item>
-        <item>
-            Pengambilan gaji asisten di A3
-        </item>
-        <item>
-            Pulang kerumah dan mengerjakan sesuatu yang belum di kerjakan.
-        </item>
-        <item>
-            Jam 11.59 PM minimal sudah tidur.
-        </item>
-    </string-array>
 
+    <string name="error_1_eng">Check your Internet Connection !</string>
+    <string name="error_1_id">Cek Koneksi Internet Anda !</string>
 
 </resources>
