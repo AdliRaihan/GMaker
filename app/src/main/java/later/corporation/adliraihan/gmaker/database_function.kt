@@ -15,6 +15,7 @@ class database_function{
         val url_developer = url + "/agenda/index.php?id=" + url_id_dev
         var url_showagenda = url + "/agenda/index.php?id="
         var url_costum = url
+        var url_login = url + "/agenda/function/server_login.php"
     }
     object URLBuilder{
         val url = coreURL.url + "/server_config/server_push.php?"

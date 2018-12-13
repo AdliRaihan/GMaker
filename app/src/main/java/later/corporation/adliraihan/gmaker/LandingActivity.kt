@@ -1,6 +1,7 @@
 package later.corporation.adliraihan.gmaker
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
@@ -85,7 +86,8 @@ class LandingActivity : AppCompatActivity(){
                 val editor = getSharedPref.edit()
                 editor.putString("username",null)
                 editor.commit()
-                finish()
+                var InterGlobal = Intent(applicationContext, MainActivity::class.java)
+                startActivity(InterGlobal)
             }
         }
     }
@@ -149,9 +151,6 @@ class LandingActivity : AppCompatActivity(){
                             }else{
                                 bottomRecycler.removeAllViews()
                             }
-
-
-
                         }
                         catch (cepon:Exception){
                             println("ERROR Code  : " + cepon)

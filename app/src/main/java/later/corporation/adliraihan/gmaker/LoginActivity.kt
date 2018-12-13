@@ -36,8 +36,6 @@ class LoginActivity : AppCompatActivity(){
         var LURD = getSharedPreferenceforWorld(this)
         username_Input.setText(LURD)
         loginbtn_intent.setOnClickListener {
-            sharedPreferenceForWorld()
-
             if(!username_Input.text.isEmpty() &&
                             !password_Input.text.isEmpty())
             {
@@ -89,13 +87,13 @@ class LoginActivity : AppCompatActivity(){
 
 
     fun InitializeLogin(PassUser:String,asConte:Context){
-        database_function.coreURL.url_costum += "/server_config/server_login.php?var1=" +
+        database_function.coreURL.url_login += "?var1=" +
                 username_Input.text.toString() +
                 "&var2=" +
                 password_Input.text.toString()
         println("URL : " + database_function.coreURL.url_costum)
         database_function.databaseConn.okRequest = Request.Builder()
-                .url(database_function.coreURL.url_costum)
+                .url(database_function.coreURL.url_login)
                 .build()
         database_function
                 .databaseConn
@@ -122,15 +120,15 @@ class LoginActivity : AppCompatActivity(){
                     StrictMode.setThreadPolicy(policyAllowed)
                     var datatype_1:String?
                     var datatype_2:String?
-                    var responses = response?.body()?.string()
-                    var jisonData = JSONArray(responses)
+                    var jisonData = JSONArray(response?.body()?.string())
                     try{
                         var Reader = jisonData.getJSONObject(0)
                         println(Reader.toString())
                         datatype_1 = Reader.getString("username")
                         datatype_2 = Reader.getString("password")
                         if(datatype_2.equals(PassUser)){
-                            var InterGlobal = Intent(applicationContext, LandingActivity::class.java)
+                            var InterGlobal = Intent(applicationContext, MainActivity::class.java)
+                            sharedPreferenceForWorld()
                             startActivity(InterGlobal)
                         }else{
                             var dialogError = Dialog(asConte)
@@ -147,6 +145,7 @@ class LoginActivity : AppCompatActivity(){
                                         }
                             }
                         }
+
                     }
                     catch (E:Exception){
                         println(E)
