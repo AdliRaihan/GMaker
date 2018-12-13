@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,10 +18,23 @@ class MainActivity : AppCompatActivity() {
 
 
         //Thrower ke First Run APP [Update Later]
-        var InterGlobal = Intent(this, FirstRunActivity::class.java)
-        Handler().postDelayed({
+
+        val getSharedPref = this?.getPreferences(Context.MODE_PRIVATE) ?: return
+        var CurrentUsernameLogon = LoginActivity().getSharedPreferenceforWorld(this)
+
+        println("Current LOGIN : " + CurrentUsernameLogon)
+        if(CurrentUsernameLogon != null){
+            var InterGlobal = Intent(this, LandingActivity::class.java)
+            Handler().postDelayed({
                 startActivity(InterGlobal)
                 this.finish()
-        },2000)
+            },2000)
+        }else{
+            var InterGlobal = Intent(this, FirstRunActivity::class.java)
+            Handler().postDelayed({
+                startActivity(InterGlobal)
+                this.finish()
+            },2000)
+        }
     }
 }

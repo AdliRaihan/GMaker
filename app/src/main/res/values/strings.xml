@@ -34,9 +34,36 @@
     <!-- Landing -->
     <string name="landing_activity_agenda_label_1">Current Agenda</string>
     <string name="landing_activity_agenda_label_2">Today Agenda</string>
+    <string name="landing_activity_ifnull">Kelihatannya anda tidak mempunyai agenda , Mulai untuk membuat agenda</string>
+    <string name="landing_activity_ifnull_header">Oops . . .</string>
+    <string name="landing_activity_ifnull_create">Buat agenda anda sekarang !</string>
     <!-- Temp -->
 
     <string name="error_1_eng">Check your Internet Connection !</string>
     <string name="error_1_id">Cek Koneksi Internet Anda !</string>
 
+    <string name="login_popup_failed_header">Status :</string>
+    <string name="login_popup_failed_txt_1">Incorect password for</string>
+    <string name="login_popup_failed_txt_2">The password you entered is incorrect. Please try again.</string>
+    <string name="login_popup_failed_txt_3">Try Again</string>
+
+
+    <string name="login_onsubmit_loading">Loading</string>
+    <string name="retry_conn_label">No Connectivity</string>
+    <string name="retry_conn_label_btn">Retry</string>
+
+
+    <!-- drawable -->
+    <string name="drawer_menu_header">Menu Drawer</string>
+    <string name="drawer_menu_sub_label_1">TOOLS</string>
+    <string name="drawer_menu_sub_label_2">INFORMATION</string>
+    <string name="drawer_menu_sub_label_3">ACCOUNT</string>
+
+    <string name="drawer_menu_account_info">Account</string>
+    <string name="drawer_menu_account_sign_out">Sign Out</string>
+    <string name="drawer_menu_account_setting">Settings</string>
+    <string name="drawer_menu_done_all">History Activity</string>
+    <string name="drawer_menu_delete">Delete History</string>
+    <string name="drawer_menu_add">Create Agenda</string>
+    <string name="drawer_menu_premium">Subsribe App</string>
 </resources>

@@ -1,123 +1,165 @@
 package later.corporation.adliraihan.gmaker
 
-import android.os.AsyncTask
+import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import android.os.StrictMode
+import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
-import android.widget.TextView
+import android.view.KeyEvent
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.RelativeLayout
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_landing_recycler_child_holder.*
-import kotlinx.android.synthetic.main.activity_landing_recycler_parent.*
+import kotlinx.android.synthetic.main.activity_landing_recycler_parent_update.*
+import kotlinx.android.synthetic.main.activity_landing_recycler_parent_update.view.*
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.child_activity_landing_menu.view.*
+import kotlinx.android.synthetic.main.child_activity_retryconnection.view.*
 import later.corporation.adliraihan.gmaker.adapter.MyRecyclerAdapter
 import okhttp3.*
 import org.json.JSONArray
-import org.json.JSONObject
 import java.io.IOException
 import java.lang.Exception
-import java.security.Policy
-import java.util.concurrent.TimeUnit
+import java.text.SimpleDateFormat
+import java.util.*
 
 class LandingActivity : AppCompatActivity(){
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-
+    open var DrawerisOpen:Boolean = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_landing_recycler_parent)
-        ScrollBarLandingUserLayout.smoothScrollTo(0,0)
-        run(database_function.coreURL.url_showagenda)
-    }
+        setContentView(R.layout.activity_landing_recycler_parent_update)
+        initLanding()
 
-    fun run(baseUri:String) : String {
-        var okHetepe = OkHttpClient()
-            .newBuilder()
-            .connectTimeout(10,TimeUnit.SECONDS)
-            .readTimeout(10,TimeUnit.SECONDS)
-            .writeTimeout(10,TimeUnit.SECONDS)
-            .build()
-        val request = Request.Builder().url(baseUri).build()
-        okHetepe.newCall(request).enqueue(object : Callback {
+        val x = LayoutInflater.from(applicationContext).inflate(R.layout.child_activity_retryconnection,landingHeader,false)
+        val y = landingHeader
+        val menuDrawer = LayoutInflater.from(applicationContext).inflate(R.layout.child_activity_landing_menu,landingHeader,false)
+        onRead(database_function.coreURL.url_showagenda,this,x,y)
+
+        menu_drawer.setOnClickListener{
+                    doOpen(menuDrawer,landingHeader)
+            menu_drawer.isEnabled = false
+        }
+    }
+    fun initLanding(){
+        var getT = Calendar.getInstance().time
+        var df = SimpleDateFormat("dd-mm-yyyy")
+        var strFormat = df.format(getT)
+        var setUser  = LoginActivity().getSharedPreferenceforWorld(this)
+        username_logged.setText(setUser)
+        status_info.setText(strFormat)
+    }
+    fun doOpen(
+            draweropn:View,
+            parent:RelativeLayout
+    ){
+        runOnUiThread {
+            fun nothing(){
+                parent.removeView(draweropn)
+                parent.menu_drawer.isEnabled = true;
+            }
+            if(draweropn.isEnabled)
+                parent.addView(draweropn)
+
+            draweropn.close_drawer_btn.setOnClickListener{nothing()}
+            draweropn.create_gendabtn.setOnClickListener{nothing();doChildOpen("create")}
+            draweropn.account_gendabtn.setOnClickListener{nothing();doChildOpen("account")}
+            draweropn.logout_gendabtn.setOnClickListener{nothing();doChildOpen("logout")}
+        }
+    }
+    fun doChildOpen(arts:Any){
+        when(arts){
+            "create"->{
+
+            }
+            "account"->{
+
+            }
+            "logout"->{
+                val getSharedPref = PreferenceManager.getDefaultSharedPreferences(this)
+                val editor = getSharedPref.edit()
+                editor.putString("username",null)
+                editor.commit()
+                finish()
+            }
+        }
+    }
+     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            finish()
+        }
+         return super.onKeyDown(keyCode, event)
+     }
+
+    fun toastShort(txt:String,contGiver:Context){
+        runOnUiThread {
+            Toast.makeText(contGiver,txt,Toast.LENGTH_SHORT).show()
+        }
+    }
+    fun onRead(url:String, myCont:Context, layoutPop: View, header:RelativeLayout){
+        database_function.databaseConn.okHetepe.newCall(Request.Builder().url(database_function.coreURL.url_developer).build()).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                e.printStackTrace()
-                runOnUiThread{
-                    userInteraction.FailedInit = true
-                    onUserInteraction()
+                runOnUiThread {
+                    header.addView(layoutPop)
+                    layoutPop.retryPopup.setOnClickListener{
+                        onRead("",myCont,layoutPop,header)
+                        header.removeView(layoutPop)
+                    }
                 }
             }
             override fun onResponse(call: Call, response: Response) {
                 if(!response.isSuccessful){
-                    throw IOException("Unexpected code " + response)
-                }
-                runOnUiThread {
-                    userInteraction.FailedInit = false
-                    var policyAllowed = StrictMode.ThreadPolicy.Builder().permitAll().build()
-                    StrictMode.setThreadPolicy(policyAllowed)
-                    //Policy Added Agar Kita semua Hepi Hepi ajah
-                    try{
-                        var ArraySuperJudulAgenda = arrayListOf<String>();var jisonJudul:String?
-                        var ArraySuperInfoAgenda  = arrayListOf<String>();var jisonDesc:String?
-                        var ArraySuperImageLoc = arrayListOf<String>();var jisonImg:String?
-                        var ArraySuperId = arrayListOf<String>();var jisonId:String?
-                        var responses = response?.body()?.string()
-                        var jisonData = JSONArray(responses)
-                        try {
-                            var Reader = jisonData.getJSONObject(0)
-                            var i = 0;
-                            do {
-                                Reader = jisonData.getJSONObject(i)
-                                jisonId = Reader.getString("agenda_id")
-                                jisonJudul = Reader.getString("agenda_judul")
-                                jisonDesc = Reader.getString("agenda_desc")
-                                jisonImg = Reader.getString("agenda_imageloc")
-                                val finalocation = baseUri + "/" + jisonImg
-                                ArraySuperJudulAgenda.add(jisonJudul)
-                                ArraySuperInfoAgenda.add(jisonDesc)
-                                ArraySuperImageLoc.add(finalocation)
-                                ArraySuperId.add(jisonId)
+                    // toastShort("Please contact admin !",myCont)
+                }else{
+                    runOnUiThread{
+                        StrictMode.setThreadPolicy(database_function.databaseConn.policyApp)
+                        var agenda_user = arrayListOf<String>()
+                        var agenda_judul = arrayListOf<String>()
+                        var agenda_desk = arrayListOf<String>()
+                        var agenda_type = arrayListOf<String>()
+                        var jisonData = JSONArray(response?.body()?.string())
+                        var i = 0;
+                        try{
+
+                            if(jisonData.length() > 0){
+
+                            do{
+                                var Reader = jisonData.getJSONObject(i)
+                                agenda_judul.add(Reader.getString("agenda_judul"))
+                                agenda_desk.add(Reader.getString("agenda_target"))
+                                agenda_type.add(Reader.getString("agenda_type"))
+                                println(agenda_judul[i] + "\n" + agenda_desk[i] + "\n" + agenda_type[i])
                                 i++
-                            } while (i < jisonData.length())
-                            viewManager = LinearLayoutManager(applicationContext)
-                            viewAdapter = MyRecyclerAdapter(ArraySuperId,ArraySuperJudulAgenda, ArraySuperInfoAgenda, ArraySuperImageLoc,applicationContext)
-                            recyclerView = findViewById<RecyclerView>(R.id.RecyclerMe).apply {
-                                setHasFixedSize(false)
-                                layoutManager = viewManager
-                                adapter = viewAdapter
+                            }while(i < jisonData.length())
+
+                                viewManager = LinearLayoutManager(myCont)
+                                viewAdapter =MyRecyclerAdapter(agenda_judul,agenda_desk,agenda_type,myCont)
+                                recyclerView = findViewById<RecyclerView>(R.id.bottomRecycler).apply {
+                                    setHasFixedSize(false)
+                                    layoutManager = viewManager
+                                    adapter = viewAdapter
+                                }
+                                bottomRecycler.visibility = View.GONE
+                                landing_isnull.visibility = View.VISIBLE
+                            }else{
+                                bottomRecycler.removeAllViews()
                             }
+
+
+
                         }
-                        catch (E:Exception){
-                            println(E)
-                            Toast.makeText(baseContext,"Could not Refresh the feed",Toast.LENGTH_SHORT).show()
+                        catch (cepon:Exception){
+                            println("ERROR Code  : " + cepon)
                         }
-                    }
-                    catch (e:IOException){
-                        Toast.makeText(baseContext,"Database Error !",Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         })
-        return "nothing";
-    }
-
-    object userInteraction{
-        var FailedInit:Boolean? = false
-    }
-    override fun onUserInteraction() {
-        //super.onUserInteraction()
-        Toast.makeText(baseContext,"Interaction",Toast.LENGTH_SHORT).show()
-        if(userInteraction.FailedInit == true){
-            Toast.makeText(baseContext,resources.getString(R.string.error_1_id),Toast.LENGTH_SHORT).show();userInteraction.FailedInit = false
-            run(database_function.coreURL.url);
-        }
-    }
-
-    override fun onUserLeaveHint() {
-        //super.onUserLeaveHint()
-        userInteraction.FailedInit = false
-        Toast.makeText(baseContext,"Leave",Toast.LENGTH_SHORT).show()
     }
 
 }

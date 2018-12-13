@@ -24,6 +24,7 @@ class FirstRunActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         //Login Activity
         var PopUp_Dev = resources.getLayout(R.layout.popup_thrower)
         buttonActivity_Login.setOnClickListener() {
