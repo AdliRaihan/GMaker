@@ -17,9 +17,9 @@ Applikasi ini terintegrasi pada dua database :
 <i>saya punya keahlian php , namun saya lebih memilih firebase sebagai tantangan.</i>
 
 Progress sampai saat ini : 
-<b>Aplikasi sudah dapat dipakai<b>
+<b>Aplikasi sudah dapat dipakai</b>
 <br>
-<img src="aplikasi_image/1.jpg" alt="image_application" width="256px">
+<img src="aplikasi_image/1.jpg" width="128px">
 
 <b>Kendala</b> :
 perubahan keterangan waktu dini hari tidak berubah menjadi sore hari pada 12 PM - 5 PM -> known bug saat ini.
