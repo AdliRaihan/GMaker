@@ -47,4 +47,4 @@ perubahan keterangan waktu dini hari tidak berubah menjadi sore hari pada 12 PM 
 <i>seluruh image dapat dilihat  <a href="https://github.com/Thibobs/GMaker/tree/master/aplikasi_image">disini</a>
 
 Developingnya sampai saat ini baru 20% dan pengerjaan baru 2 minggu saja karena terpotong dengan jadwal kuliah serta asisten dosen.
-bila kamu berminat dengan app ini bisa hubungi saya di email adliraihan002@gmail.com
+bila kamu berminat <b>ehm... mendanai</b> app ini bisa hubungi saya di email adliraihan002@gmail.com
