@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:foregroundGravity="center"
+    app:layout_anchorGravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".firebase.FirebaseCreateActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/creategenda_back"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back_gray_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/BColorPrimary"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:visibility="visible"
+        android:foregroundGravity="center"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_alarm_add_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:text="Create Agenda" />
+                <ImageView
+                    android:layout_marginHorizontal="70dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorPrimaryDark_Opacity2"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Title" />
+
+                <EditText
+                    android:fontFamily="@font/segoeui"
+                    android:background="@drawable/edittext_primary_drwbl"
+                    android:id="@+id/titleDataAgenda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="Your Title Goes Here!"
+                    android:padding="15dp"
+                    android:textSize="14dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:text="Type" />
+
+                <Spinner
+                    android:paddingHorizontal="15dp"
+                    android:id="@+id/typeDataAgenda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/edittext_primary_drwbl"
+                    android:dropDownWidth="match_parent"
+                    android:fontFamily="@font/segoeui"
+                    android:hint="Your Title Goes Here!"
+                    android:textSize="14dp"
+                    android:tooltipText="Type of your agenda" />
+
+                <LinearLayout
+                    android:id="@+id/nextChapter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:text="Description" />
+
+                    <EditText
+                        android:maxLength="250"
+                        android:gravity="top|left"
+                        android:fontFamily="@font/segoeui"
+                        android:background="@drawable/edittext_primary_drwbl"
+                        android:id="@+id/DescDataAgenda"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:maxHeight="100dp"
+                        android:layout_margin="10dp"
+                        android:hint="Your Description Goes Here!"
+                        android:padding="15dp"
+                        android:textSize="14dp" />
+                    <TextView
+                        android:id="@+id/charleft_createAgenda"
+                        android:paddingHorizontal="12.5dp"
+                        android:text="250 Characters left"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textEnd"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="15dp"
+                                android:text="Target Date" />
+
+                            <Button
+                                android:fontFamily="@font/segoeui"
+                                style="?android:borderlessButtonStyle"
+                                android:gravity="left"
+                                android:background="@drawable/edittext_primary_drwbl"
+                                android:id="@+id/StartAgenda"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:hint="Set your target date here"
+                                android:inputType="datetime"
+                                android:padding="15dp"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:padding="15dp"
+                                android:textSize="12dp"
+                                android:textColor="@color/colorPrimaryDark_Opacity2"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/note_created_agenda"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/btnAgenda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/button_agenda_primary"
+                    android:text="DONE"
+                    android:textColor="@color/colorAccent_2" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -46,6 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/infoLogs"
             android:paddingHorizontal="30dp"
             android:paddingBottom="30dp"
             android:text="@string/login_popup_failed_txt_2"

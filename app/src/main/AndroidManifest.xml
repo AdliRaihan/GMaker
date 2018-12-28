@@ -32,12 +32,27 @@
         <activity
             android:name=".DaftarActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".firebase.FirebaseLoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".firebase.FirebaseLandingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".firebase.FirebaseDetailActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".adapter.DetailsActivity"></activity>
+        <activity
+            android:name=".firebase.FirebaseDaftarActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".adapter.DetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".firebase.FirebaseCreateActivity"></activity>
     </application>
 
 </manifest>

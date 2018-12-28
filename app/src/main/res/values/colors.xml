@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#b2bec3</color>
+    <color name="colorPrimary">#3d3d3d</color>
     <color name="colorPrimaryDark">#343A40</color>
     <color name="colorPrimaryDark_Opacity1">#96343A40</color>
     <color name="colorPrimaryDark_Opacity2">#20343A40</color>
     <color name="colorAccent">#E4E4E4</color>
     <color name="colorAccent_2">#FFFFFF</color>
+    <color name="colorAccent_3">#20FFFFFF</color>
 
+    <color name="colorBorder_1">#2d3436</color>
     <color name="colorDawn">#968e9eab</color>
     <color name="colorDawnBlue">#96eef2f3</color>
 
+    <color name="landingColor">#D94b4b4b</color>
 
+    <color name="BColorPrimary">#5bc0de</color>
+    <color name="BColorDanger">#d9534f</color>
+    <color name="BColorDangerLink">#d63031</color>
+    <color name="BColorSuccess">#5cb85c</color>
+    <color name="BColorLink">#428bca</color>
 
 
 </resources>

@@ -26,17 +26,30 @@
     <!-- Daftar -->
     <string name="hint_daftar_username">Username Anda</string>
     <string name="hint_daftar_password">Password Anda</string>
+    <string name="hint_daftar_password_conf">Konfirmasi Password Anda</string>
     <string name="daftar_label_header">Daftar</string>
 
 
     <string name="lorem_ipsum_sm">Lorem Ipsum Bachelor</string>
+    <string name="lorem_ipsum_xl"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Aliquam vitae libero risus. Suspendisse non nisl turpis. Aliquam sagittis quis lacus sed
+        pulvinar. Pellentesque vel sem vel nunc rhoncus fringilla. Sed blandit quam a purus aliquet, sit
+        amet tristique leo aliquam. Donec ut magna sed quam cursus consequat. Aliquam dui quam, dictum ac
+        auctor vitae, ornare eget quam.</string>
     <string name="Details_header_label">Agenda</string>
     <!-- Landing -->
     <string name="landing_activity_agenda_label_1">Current Agenda</string>
     <string name="landing_activity_agenda_label_2">Today Agenda</string>
     <string name="landing_activity_ifnull">Kelihatannya anda tidak mempunyai agenda , Mulai untuk membuat agenda</string>
-    <string name="landing_activity_ifnull_header">Oops . . .</string>
+    <string name="landing_activity_ifnull_header">Oops</string>
     <string name="landing_activity_ifnull_create">Buat agenda anda sekarang !</string>
+    <string name="Landing_list_agenda">List Agenda Horizontal</string>
+    <string name="Landing_list2_agenda">List Agenda Vertical (Detailed)</string>
+
+    <string name="detail_label_header">Agenda Details</string>
+    <string name="detail_label_appointment">365 Days left</string>
+    <string name="detail_label_description">Description Detail</string>
+    <string name="detail_label_editor">edit</string>
     <!-- Temp -->
 
     <string name="error_1_eng">Check your Internet Connection !</string>
@@ -52,9 +65,13 @@
     <string name="retry_conn_label">No Connectivity</string>
     <string name="retry_conn_label_btn">Retry</string>
 
-
+    <string name="landing_highlight_header">Statistics 2018</string>
+    <string name='landing_highlight_1'>Total Agenda</string>
+    <string name='landing_highlight_2'>Agenda Selesai</string>
+    <string name="landing_highlight_3">Agenda deleted</string>
+    <string name="landing_highlight_4">Agenda Created</string>
     <!-- drawable -->
-    <string name="drawer_menu_header">Menu Drawer</string>
+    <string name="drawer_menu_header"></string>
     <string name="drawer_menu_sub_label_1">TOOLS</string>
     <string name="drawer_menu_sub_label_2">INFORMATION</string>
     <string name="drawer_menu_sub_label_3">ACCOUNT</string>
@@ -66,4 +83,13 @@
     <string name="drawer_menu_delete">Delete History</string>
     <string name="drawer_menu_add">Create Agenda</string>
     <string name="drawer_menu_premium">Subsribe App</string>
+
+    <string name="note_created_agenda">
+        Note : this application does not have clock target , the notification will appeared when the date target and date system are matched.
+    </string>
+
+    <string-array name="type_agenda">
+        <item>Not important</item>
+        <item>Important</item>
+    </string-array>
 </resources>

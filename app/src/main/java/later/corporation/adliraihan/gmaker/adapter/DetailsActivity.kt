@@ -22,46 +22,5 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
-        var Id = getBundles()
-        setImage(getBundlesImages())
-        getData(database_function.coreURL.url + "/server_config/selected.php?id=" + Id)
-    }
-    fun getBundles(): String{
-        var xBundles = getIntent().extras
-        return xBundles.getString("agenda_id")
-    }
-    fun getBundlesImages(): String{
-        var xBundles = getIntent().extras
-        return xBundles.getString("agenda_img")
-    }
-    fun getData(urlSelector:String){
-        var detailsHttp = OkHttpClient()
-        val request = Request.Builder().url(urlSelector).build()
-        detailsHttp.newCall(request).enqueue(object : Callback{
-            override fun onFailure(call: Call, e: IOException) {
-                Toast.makeText(applicationContext,"Someting Went Wrong",Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                var responses = response?.body()?.string();var jisonJudul:String?;var jisonDesc:String?;var jisonImg:String?
-                var jisonSelect = JSONArray(responses);val opt = RequestOptions().centerCrop()
-                try{
-                    var toRead = jisonSelect.getJSONObject(0)
-                    jisonJudul = toRead.getString("agenda_judul")
-                    jisonDesc = toRead.getString("agenda_desc")
-                    textKu.setText(jisonJudul)
-                    text_detail_info.setText(jisonDesc)
-                }
-                catch (E:Exception){
-                    println(E)
-                }
-
-            }
-
-        })
-    }
-    fun setImage(url:String){
-        Glide.with(applicationContext).asBitmap().load(url).into(imageHolder_details)
-       // Toast.makeText(this,"URL : " + url,Toast.LENGTH_SHORT).show()
     }
 }

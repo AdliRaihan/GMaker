@@ -49,11 +49,15 @@ class LandingActivity : AppCompatActivity(){
     }
     fun initLanding(){
         var getT = Calendar.getInstance().time
+        var tf = SimpleDateFormat("hh:mm a")
+        var gtf = tf.format(getT)
+        timerCounter.setText(gtf.toString())
         var df = SimpleDateFormat("dd-mm-yyyy")
         var strFormat = df.format(getT)
         var setUser  = LoginActivity().getSharedPreferenceforWorld(this)
         username_logged.setText(setUser)
         status_info.setText(strFormat)
+
     }
     fun doOpen(
             draweropn:View,
@@ -104,7 +108,10 @@ class LandingActivity : AppCompatActivity(){
         }
     }
     fun onRead(url:String, myCont:Context, layoutPop: View, header:RelativeLayout){
-        database_function.databaseConn.okHetepe.newCall(Request.Builder().url(database_function.coreURL.url_developer).build()).enqueue(object : Callback {
+        database_function.coreURL.url_showagenda = database_function.coreURL.url_defaultagenda
+        database_function.coreURL.url_showagenda += LoginActivity().getSharedPreferenceforWorld(myCont)
+        println("URL : " + database_function.coreURL.url_showagenda)
+        database_function.databaseConn.okHetepe.newCall(Request.Builder().url(database_function.coreURL.url_showagenda).build()).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 runOnUiThread {
                     header.addView(layoutPop)
@@ -140,15 +147,15 @@ class LandingActivity : AppCompatActivity(){
                             }while(i < jisonData.length())
 
                                 viewManager = LinearLayoutManager(myCont)
-                                viewAdapter =MyRecyclerAdapter(agenda_judul,agenda_desk,agenda_type,myCont)
+                               // viewAdapter =MyRecyclerAdapter(agenda_judul,agenda_desk,agenda_type,myCont)
                                 recyclerView = findViewById<RecyclerView>(R.id.bottomRecycler).apply {
                                     setHasFixedSize(false)
                                     layoutManager = viewManager
                                     adapter = viewAdapter
                                 }
+                            }else{
                                 bottomRecycler.visibility = View.GONE
                                 landing_isnull.visibility = View.VISIBLE
-                            }else{
                                 bottomRecycler.removeAllViews()
                             }
                         }

@@ -129,6 +129,7 @@ class LoginActivity : AppCompatActivity(){
                         if(datatype_2.equals(PassUser)){
                             var InterGlobal = Intent(applicationContext, MainActivity::class.java)
                             sharedPreferenceForWorld()
+                            InterGlobal.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             startActivity(InterGlobal)
                         }else{
                             var dialogError = Dialog(asConte)

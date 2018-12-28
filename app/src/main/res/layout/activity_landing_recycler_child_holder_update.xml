@@ -2,25 +2,20 @@
 <LinearLayout
     android:id="@+id/taskListButton"
     android:padding="10dp"
-    android:background="@drawable/background_solid_radius_white5"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="25dp">
+    android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:textColor="@color/colorAccent"
             android:id="@+id/days_left"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/lorem_ipsum_sm"/>
-        <TextView
-            android:id="@+id/edit_btn"
-            android:gravity="right"
-            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/lorem_ipsum_sm"/>
     </LinearLayout>
@@ -30,29 +25,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:textColor="@color/colorAccent_2"
             android:id="@+id/text_Recycler_1"
-            android:textSize="20dp"
+            android:textSize="16dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/lorem_ipsum_sm"/>
         <TextView
-            android:id="@+id/text_Recycler_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="right"
-            android:textColor="@color/colorDawn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/lorem_ipsum_sm"/>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/text_Recycler_2"
-            android:textSize="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/lorem_ipsum_sm"/>
+            android:textColor="@color/colorDawnBlue"
+            android:text="Tap to see more"/>
     </LinearLayout>
 
 </LinearLayout>

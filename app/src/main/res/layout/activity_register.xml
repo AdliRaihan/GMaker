@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@mipmap/unsplash_bg_thrower"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -11,7 +10,13 @@
         android:background="@color/colorPrimaryDark_Opacity1"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <ImageView
+            android:scaleType="centerCrop"
+            android:src="@mipmap/neil_bg_failed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
         <LinearLayout
+            android:background="@color/colorPrimaryDark_Opacity1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -50,7 +55,21 @@
                 android:textSize="12dp"
                 android:hint="@string/hint_daftar_password"
                 android:background="@drawable/background_solid_radius100_outline"
-                android:textColorHint="@android:color/white"
+                android:textColorHint="@color/colorDawnBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/password_daftar_confrim"
+                android:layout_marginVertical="5dp"
+                android:maxLength="12"
+                android:inputType="textPassword"
+                android:textColor="@color/colorDawnBlue"
+                android:paddingHorizontal="40dp"
+                android:paddingVertical="10dp"
+                android:textSize="12dp"
+                android:hint="@string/hint_daftar_password_conf"
+                android:background="@drawable/background_solid_radius100_outline"
+                android:textColorHint="@color/colorDawnBlue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <Button

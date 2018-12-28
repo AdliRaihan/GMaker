@@ -13,7 +13,8 @@ class database_function{
         val url = "http://192.168.10.23:81"
         val url_id_dev = "adliraihan"
         val url_developer = url + "/agenda/index.php?id=" + url_id_dev
-        var url_showagenda = url + "/agenda/index.php?id="
+        val url_defaultagenda = url + "/agenda/index.php?id="
+        var url_showagenda = url_defaultagenda
         var url_costum = url
         var url_login = url + "/agenda/function/server_login.php"
     }
