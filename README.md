@@ -1,5 +1,7 @@
 # GMaker
 <i>Seluruh image yang terdapat pada applikasi ini seluruhnya dari unsplash.com</i>
+untuk melihat keseluruhan proses pembuatan bisa di cek di IG saya <a href="https://www.instagram.com/adli.raihan/">disini</a>
+dari mulai pertama pembuatan sampai akhir serta beberapa design yang di rancang ulang / diubah . Rencananya app ini pula akan diijadikan opensource <i> well it is lol </i>
 
 GM adalah genda maker , 
 latar belakang pembuatan web ini adalah karena saya hobi sekali yang namanya mengatur waktu , dari pagi sampe malem itu biasanya
