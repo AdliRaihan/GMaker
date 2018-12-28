@@ -6,8 +6,7 @@ latar belakang pembuatan web ini adalah karena saya hobi sekali yang namanya men
 saya sudah menulis terlebih dahulu apa yang harus dilakukan . Tapi , semuanya itu secara manual alias ditulis di note laptop .
 
 seiring berjalannya waktu , jenis gadget apa yang sering saya gunakan ? yaitu <b>smartphone</b> . Karena alasan tersebut saya ingin
-sekali membuat applikasi pengatur waktu . Meskipun sudah banyak di pasaran , namun banyak keinginan saya yang tidak terdapat dalam
-fitur tersebut . 
+sekali membuat applikasi pengatur waktu . Meskipun sudah banyak di pasaran , namun banyak fitur yang diinginan tidak terdapat pada app tersebut.
 
 Applikasi ini terintegrasi pada dua database :
 <ul>
