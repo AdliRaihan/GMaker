@@ -12,8 +12,8 @@ GM adalah genda maker ,
 latar belakang pembuatan web ini adalah karena saya hobi sekali yang namanya mengatur waktu , dari pagi sampe malem itu biasanya
 saya sudah menulis terlebih dahulu apa yang harus dilakukan . Tapi , semuanya itu secara manual alias ditulis di note laptop .
 
-seiring berjalannya waktu , jenis gadget apa yang sering saya gunakan ? yaitu <b>smartphone</b> . Karena alasan tersebut saya ingin
-sekali membuat applikasi pengatur waktu . Meskipun sudah banyak di pasaran , namun banyak fitur yang diinginan tidak terdapat pada app tersebut.
+Lalu jenis gadget apa yang sering saya gunakan ? jawabannya adalah <b>smartphone</b> . Karena alasan tersebut saya ingin
+sekali membuat applikasi pengatur waktu . Meskipun sudah banyak di pasaran , namun banyak fitur yang saya inginkan tidak terdapat pada app tersebut.Karena saya programmer kenapa ga buat sendiri aja ?
 
 Applikasi ini terintegrasi pada dua database :
 <ul>
