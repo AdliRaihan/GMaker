@@ -41,19 +41,21 @@ saya sudah menulis terlebih dahulu apa yang harus dilakukan . Tapi , semuanya it
 Lalu jenis gadget apa yang sering saya gunakan ? jawabannya adalah <b>smartphone</b> . Karena alasan tersebut saya ingin
 sekali membuat applikasi pengatur waktu . Meskipun sudah banyak di pasaran , namun banyak fitur yang saya inginkan tidak terdapat pada app tersebut.Karena saya programmer kenapa ga buat sendiri aja ?
 
+<hr/>
+
 Applikasi ini terintegrasi pada dua database :
 <ul>
 <li>Firebase <i>Used</i></li>
-<li>mysql dengan JSON <i>Unused</i></li>
+<li>mysql dengan JSON <i>Unused namun code masih tersimpan didalam project</i></li>
 </ul>
 <i>saya punya keahlian php , namun saya lebih memilih firebase sebagai tantangan.</i>
 
 Progress sampai saat ini : 
 <b>Aplikasi sudah dapat dipakai</b>
-<br>
+<br><br>
 <img src="aplikasi_image/1.jpg" width="128px">
-
-<b>Kendala</b> :
+<br><br>
+<b>Known Bugs</b> : <br>
 perubahan keterangan waktu dini hari tidak berubah menjadi sore hari pada 12 PM - 5 PM -> known bug saat ini.
 
 <b>Future update</b> :
