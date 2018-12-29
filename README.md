@@ -1,9 +1,35 @@
 # GMaker
 
 <h2> Status program : sudah dapat digunakan namun ceritanya masih <i>early-access</i></h2>
-<i>Seluruh image yang terdapat pada applikasi ini seluruhnya dari unsplash.com</i>
 
-<br><br>
+<table>
+  <tr>
+    <td>Next Update is in progress</td>
+  </tr>
+  <tr>
+    <td><img src="aplikasi_image/1546094694914.jpg" width="512px"></td>
+  </tr>
+  <tr>
+    <td>
+      Penjelasan Update :<br>
+      Menambah fitur Scheduling dengan pancuan waktu (dari) dan (sampai) ,<br>
+      contoh : <br>
+         1. 08:00 AM - 09:00 AM | Membeli Ayam <br>
+         2. 09:00 AM - 10:00 PM | Bekerja <br>
+         3. etc<br>
+      Meskipun form hanya satu , tetapi bila user menambahkan schedule time pada tanggal dan bulan serta tahun yang sama<br>
+      maka system akan melakukan appending . Apabila waktu yang di tentukan telah lewat maka schedule tersebut<br>
+      akan terhapus dengan sendirinya .
+      <br><br>
+      Masukan / saran bisa kontak saya di email. 
+    </td>
+  </tr>
+</table>
+
+
+
+<i><b>Seluruh image yang terdapat pada applikasi ini seluruhnya dari unsplash.com</b></i>
+<br>
 Bila anda penasaran proses pembuatan secara menyeluruh bisa di cek di IG saya <a href="https://www.instagram.com/adli.raihan/">disini</a>
 dari mulai pertama pembuatan sampai akhir serta beberapa design yang di rancang ulang / diubah . Rencananya app ini pula akan diijadikan opensource <i> well it is lol </i>
 <br><br>
