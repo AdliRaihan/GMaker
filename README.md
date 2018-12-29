@@ -61,8 +61,8 @@ perubahan keterangan waktu dini hari tidak berubah menjadi sore hari pada 12 PM 
 <b>Future update</b> :
 - Popup notification bila ada ongoing schedule
 - Diary setelah schedule dilakukan / seperti mengirim kesan dan pesan setelah schedule tersebut di lakukan.
-- Schedule agenda perjam Notification akan popup pada setiap jam 10 malam (<i>secara default</i>) untuk mengingatkan mengisi<br>
-jadwal schedule untuk keesokan harinya.
+- Schedule agenda perjam notification akan muncul setiap jam 10 malam (<i>secara default</i>) sebagai reminder untuk mengisi schedule esok hari.
+<br><br>
 <center>
 <table>
   <tr>
