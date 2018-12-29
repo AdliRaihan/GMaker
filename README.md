@@ -17,9 +17,9 @@
          1. 08:00 AM - 09:00 AM | Membeli Ayam <br>
          2. 09:00 AM - 10:00 PM | Bekerja <br>
          3. etc<br>
-      Meskipun form hanya satu , tetapi bila user menambahkan schedule time pada tanggal dan bulan serta tahun yang sama<br>
-      maka system akan melakukan appending . Apabila waktu yang di tentukan telah lewat maka schedule tersebut<br>
-      akan terhapus dengan sendirinya .
+      Meskipun form hanya satu , tetapi bila user menambahkan schedule time pada tanggal dan bulan serta tahun yang sama
+      maka system akan melakukan appending . Tetapi apabila waktu yang di tentukan telah lewat maka schedule tersebut
+      akan dihapus oleh system .  
       <br><br>
       Masukan / saran bisa kontak saya di email. 
     </td>
@@ -59,9 +59,8 @@ Progress sampai saat ini :
 perubahan keterangan waktu dini hari tidak berubah menjadi sore hari pada 12 PM - 5 PM -> known bug saat ini.
 
 <b>Future update</b> :
-- Popup notification bila ada ongoing schedule
-- Diary setelah schedule dilakukan / seperti mengirim kesan dan pesan setelah schedule tersebut di lakukan.
-- Schedule agenda perjam notification akan muncul setiap jam 10 malam (<i>secara default</i>) sebagai reminder untuk mengisi schedule esok hari.
+- <b>Diary update </b> , setelah schedule dilakukan / seperti mengirim kesan dan pesan setelah schedule tersebut di lakukan.
+- <b>Schedule update</b> perjam notification akan muncul setiap jam 10 malam (<i>secara default</i>) sebagai reminder untuk mengisi schedule esok hari.
 <br><br>
 <center>
 <table>
