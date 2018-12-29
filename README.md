@@ -21,7 +21,7 @@
       maka system akan melakukan appending . Tetapi apabila waktu yang di tentukan telah lewat maka schedule tersebut
       akan dihapus oleh system .  
       <br><br>
-      Masukan / saran bisa kontak saya di email. 
+      Masukan / saran bisa menghubungi  saya melalui email. 
     </td>
   </tr>
 </table>
