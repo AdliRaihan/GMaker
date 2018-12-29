@@ -61,6 +61,8 @@ perubahan keterangan waktu dini hari tidak berubah menjadi sore hari pada 12 PM 
 <b>Future update</b> :
 - Popup notification bila ada ongoing schedule
 - Diary setelah schedule dilakukan / seperti mengirim kesan dan pesan setelah schedule tersebut di lakukan.
+- Schedule agenda perjam Notification akan popup pada setiap jam 10 malam (<i>secara default</i>) untuk mengingatkan mengisi<br>
+jadwal schedule untuk keesokan harinya.
 <center>
 <table>
   <tr>
@@ -75,4 +77,4 @@ perubahan keterangan waktu dini hari tidak berubah menjadi sore hari pada 12 PM 
 <i>seluruh image dapat dilihat  <a href="https://github.com/Thibobs/GMaker/tree/master/aplikasi_image">disini</a>
 
 Developingnya sampai saat ini baru 20% dan pengerjaan baru 2 minggu saja karena terpotong dengan jadwal kuliah serta asisten dosen.
-bila kamu berminat <b>ehm... mendanai</b> app ini bisa hubungi saya di email adliraihan002@gmail.com
+email saya adliraihan002@gmail.com
