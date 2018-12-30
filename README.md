@@ -12,7 +12,7 @@
 <a href="https://github.com/Thibobs/GMaker/blob/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase/FirebaseCalendar.kt">Calendar picker & Time difference Algorithm</a><br>
 <a href="https://github.com/Thibobs/GMaker/blob/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase/FirebaseCalendar.kt">Background services for reminding ongoing schedule</a><br>
   <b>Features</b><br>
-  - Almost all activity is userfriendly , ada beberapa fitur yg mempermudah user dalam menggunakan app ini<br>
+  - Almost all activity are userfriendly , ada beberapa fitur yg mempermudah user dalam menggunakan app ini<br>
   - Reminder<br>
   - Realtime database's<br>
   - etc<br>
