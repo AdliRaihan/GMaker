@@ -9,6 +9,7 @@ import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.child_activity_landing_menu.view.*
 import kotlinx.android.synthetic.main.child_activity_retryconnection.view.*
 import later.corporation.adliraihan.gmaker.adapter.MyRecyclerAdapter
+import later.corporation.adliraihan.gmaker.firebase.CreateDailyActivity
 import okhttp3.*
 import org.json.JSONArray
 import java.io.IOException
@@ -72,6 +74,7 @@ class LandingActivity : AppCompatActivity(){
                 parent.addView(draweropn)
 
             draweropn.close_drawer_btn.setOnClickListener{nothing()}
+            draweropn.create_gendabtndaily.setOnClickListener{nothing();doChildOpen("dailycreate")}
             draweropn.create_gendabtn.setOnClickListener{nothing();doChildOpen("create")}
             draweropn.account_gendabtn.setOnClickListener{nothing();doChildOpen("account")}
             draweropn.logout_gendabtn.setOnClickListener{nothing();doChildOpen("logout")}
@@ -80,7 +83,12 @@ class LandingActivity : AppCompatActivity(){
     fun doChildOpen(arts:Any){
         when(arts){
             "create"->{
-
+                Log.i("Button","DailyCreate tapped")
+            }
+            "dailycreate"->{
+                Log.i("Button","DailyCreate tapped")
+                var InterGlobal = Intent(applicationContext, CreateDailyActivity::class.java)
+                startActivity(InterGlobal)
             }
             "account"->{
 

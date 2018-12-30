@@ -83,6 +83,7 @@
     <string name="drawer_menu_delete">Delete History</string>
     <string name="drawer_menu_add">Create Agenda</string>
     <string name="drawer_menu_premium">Subsribe App</string>
+    <string name="drawer_menu_addDaily">Add schedule Tomorrow</string>
 
     <string name="note_created_agenda">
         Note : this application does not have clock target , the notification will appeared when the date target and date system are matched.
@@ -92,4 +93,10 @@
         <item>Not important</item>
         <item>Important</item>
     </string-array>
+
+
+    <!-- Daerah ClockPicker -->
+    <string name="clockpicker_label"></string>
+
+
 </resources>

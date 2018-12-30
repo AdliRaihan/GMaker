@@ -113,6 +113,36 @@ class FirebaseCalendar{
 
         return numberString
     }
+    fun CalendarFullString(number:Int) : String{
+            var numberString :String = ""
+            if(number == 1)
+                numberString = "January"
+            if(number == 2)
+                numberString = "February"
+            if(number == 3)
+                numberString = "March"
+            if(number == 4)
+                numberString = "April"
+            if(number == 5)
+                numberString = "May"
+            if(number == 6)
+                numberString = "June"
+            if(number == 7)
+                numberString = "July"
+            if(number == 8)
+                numberString = "August"
+            if(number == 9)
+                numberString = "September"
+            if(number == 10)
+                numberString = "October"
+            if(number == 11)
+                numberString = "November"
+            if(number == 12)
+                numberString = "December"
+
+            return numberString
+    }
+
     fun CalendarToInt(calendar:String):Int{
         var numberInter:Int = 0
 

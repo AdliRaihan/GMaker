@@ -1,9 +1,14 @@
 package later.corporation.adliraihan.gmaker.firebase
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.preference.PreferenceManager
+import android.support.v4.app.NotificationCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -48,6 +53,8 @@ class FirebaseLandingActivity : AppCompatActivity(){
         }
         initializeAgenda()
         OngoingRightnow()
+        tryNotification()
+        startService(Intent(this,serviceBG::class.java))
     }
 
     fun initializeAgenda(){
@@ -156,6 +163,7 @@ class FirebaseLandingActivity : AppCompatActivity(){
 
             draweropn.close_drawer_btn.setOnClickListener{nothing()}
             draweropn.create_gendabtn.setOnClickListener{nothing();doChildOpen("create")}
+            draweropn.create_gendabtndaily.setOnClickListener{nothing();doChildOpen("createdaily")}
             draweropn.account_gendabtn.setOnClickListener{nothing();doChildOpen("account")}
             draweropn.logout_gendabtn.setOnClickListener{nothing();doChildOpen("logout")}
         }
@@ -164,6 +172,10 @@ class FirebaseLandingActivity : AppCompatActivity(){
         when(arts){
             "create"->{
                 var InterGlobal = Intent(applicationContext, FirebaseCreateActivity::class.java)
+                startActivity(InterGlobal)
+            }
+            "createdaily"->{
+                var InterGlobal = Intent(applicationContext, CreateDailyActivity::class.java)
                 startActivity(InterGlobal)
             }
             "account"->{
@@ -180,6 +192,8 @@ class FirebaseLandingActivity : AppCompatActivity(){
         }
     }
 
+    fun tryNotification(){
+    }
     fun OngoingRightnow(){
         var Pref = Database.variables.myRead.child("user_" + username_logged.text.toString() + Database.url.user_agenda )
         val functionImplements = Pref.orderByChild("title")
