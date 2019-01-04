@@ -2,6 +2,7 @@ package later.corporation.adliraihan.gmaker.firebase
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -12,17 +13,20 @@ import android.support.v4.app.NotificationCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_landing_recycler_parent_update.*
 import kotlinx.android.synthetic.main.activity_landing_recycler_parent_update.view.*
 import kotlinx.android.synthetic.main.child_activity_landing_menu.view.*
+import kotlinx.android.synthetic.main.child_activity_retryconnection.*
 import later.corporation.adliraihan.gmaker.LoginActivity
 import later.corporation.adliraihan.gmaker.MainActivity
 import later.corporation.adliraihan.gmaker.R
@@ -30,6 +34,7 @@ import later.corporation.adliraihan.gmaker.adapter.MyRecyclerAdapter
 import later.corporation.adliraihan.gmaker.adapter.MyRecyclerAdapterOngoing
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.logging.SimpleFormatter
 
 class FirebaseLandingActivity : AppCompatActivity(){
 
@@ -54,7 +59,7 @@ class FirebaseLandingActivity : AppCompatActivity(){
         initializeAgenda()
         OngoingRightnow()
         tryNotification()
-        startService(Intent(this,serviceBG::class.java))
+        startService(Intent(this,RSSPullService::class.java))
     }
 
     fun initializeAgenda(){
@@ -67,7 +72,6 @@ class FirebaseLandingActivity : AppCompatActivity(){
 
             override fun onDataChange(p0: DataSnapshot) {
                     val children = p0.children
-                println("Count : " + p0.children.count())
                 totalagendacount.setText(p0.children.count().toString())
                 if(p0.children.count() == 0 ){
                     bottomRecycler.visibility = View.GONE
@@ -91,13 +95,17 @@ class FirebaseLandingActivity : AppCompatActivity(){
                         agenda_date.add(it.child("date").value.toString())
                         agenda_type.add(it.child("type").value.toString())
                     }
-
-                    viewManager = LinearLayoutManager(this@FirebaseLandingActivity,LinearLayout.HORIZONTAL,false)
-                    viewAdapter = MyRecyclerAdapter(agenda_judul,agenda_type,agenda_time,agenda_date,agenda_desk,this@FirebaseLandingActivity)
-                    recyclerView = findViewById<RecyclerView>(R.id.bottomRecycler).apply {
-                        setHasFixedSize(false)
-                        layoutManager = viewManager
-                        adapter = viewAdapter
+                    try{
+                        viewManager = LinearLayoutManager(this@FirebaseLandingActivity,LinearLayout.HORIZONTAL,false)
+                        viewAdapter = MyRecyclerAdapter(agenda_judul,agenda_type,agenda_time,agenda_date,agenda_desk,this@FirebaseLandingActivity)
+                        recyclerView = findViewById<RecyclerView>(R.id.bottomRecycler).apply {
+                            setHasFixedSize(false)
+                            layoutManager = viewManager
+                            adapter = viewAdapter
+                        }
+                    }
+                    catch(E:Exception){
+                        Log.i("Error Message",E.toString())
                     }
                 }
             }
@@ -142,7 +150,6 @@ class FirebaseLandingActivity : AppCompatActivity(){
         }else{
             status_info.setText("Dini hari !")
         }
-        println(hours.toString() + " " + timeinfo)
 
         var setUser  = FirebaseLoginActivity().FgetSharedPreferenceforWorld(this)
         username_logged.setText(setUser)
@@ -204,7 +211,6 @@ class FirebaseLandingActivity : AppCompatActivity(){
 
             override fun onDataChange(p0: DataSnapshot) {
                 val children = p0.children
-                println("Count : " + p0.children.count())
                 totalagendacount.setText(p0.children.count().toString())
                 if(p0.children.count() == 0 ){
                     bottomRecycler.visibility = View.GONE

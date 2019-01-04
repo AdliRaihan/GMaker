@@ -1,11 +1,14 @@
 package later.corporation.adliraihan.gmaker
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.preference.PreferenceManager
 import android.util.Log
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import later.corporation.adliraihan.gmaker.firebase.Database
@@ -15,32 +18,24 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-
-    object calendar{
-
-        var current = "11-12-2018"
-        var target = "11-02-2019"
-
-        var currentDate = current[0].toString() + current[1].toString()
-        var targetDate = current[0].toString() + current[1].toString()
-
-        var currentMonth = current[3].toString() + current[4].toString()
-        var targetMonth = target[3].toString() + target[4].toString()
-
-
-        var currentYear = current[6].toString() + current[7].toString() + current[8].toString() + current[9].toString()
-        var targetYear = target[6].toString() + target[7].toString() + target[8].toString()+ target[9].toString()
-
-    }
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        var Tags = "MainActivity"
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_thrower)
-
-        // ALGORITHM DATA //
         var CurrentUsernameLogon = FirebaseLoginActivity().FgetSharedPreferenceforWorld(this)
+        var getPref = PreferenceManager.getDefaultSharedPreferences(this)
+        var varNote = getPref.getString("autostartNotification",1.toString())
+        var mXiaomi:String? = "Xiaomi"
+        Log.i("XIAOMI V:" , android.os.Build.MANUFACTURER)
+        if(mXiaomi.equals(android.os.Build.MANUFACTURER) && varNote.equals(0.toString())){
+            Log.i("XIAOMI MANUFACTURER :" , "SUCCESS")
+            var intentComponent = Intent()
+            Toast.makeText(this,"Set Autostart pada aplikasi GMaker.",Toast.LENGTH_SHORT).show()
+            intentComponent.setComponent(ComponentName("com.miui.securitycenter","com.miui.permcenter.autostart.AutoStartManagementActivity"))
+            startActivity(intentComponent)
+        }
+
         if(CurrentUsernameLogon != null){
             var InterGlobal = Intent(this, FirebaseLandingActivity::class.java)
             Handler().postDelayed({
@@ -96,4 +91,13 @@ class MainActivity : AppCompatActivity() {
         Log.i("TOTAL", b.toString())
         */
     }
+
+    fun setNotificationAutoStart(){
+        val getSharedPref = PreferenceManager.getDefaultSharedPreferences(this )
+        val editor = getSharedPref.edit()
+        editor.putString("autostartNotification", 0.toString())
+        editor.commit()
+    }
+
+
 }

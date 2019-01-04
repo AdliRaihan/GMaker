@@ -1,5 +1,6 @@
 package later.corporation.adliraihan.gmaker.firebase
 
+import android.util.Log
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.logging.SimpleFormatter
@@ -25,62 +26,72 @@ class FirebaseCalendar{
         )
     }
 
-    fun CompareTwo(FullDateCurrent:String,FullDateTarget:String) : String{
-        //Algoritma buatan adliraihan
+    fun CompareTwo(FullDateCurrent:String,FullDateTarget:String) : String?{
+            Log.i("FULL DATE " , FullDateTarget)
+            var targetDate = "01"
+            var targetMonth = "Jan"
+            var targetYear = "1900"
+            try{
+                targetDate = FullDateTarget[0].toString() + FullDateTarget[1].toString()
+                targetMonth = FullDateTarget[3].toString() + FullDateTarget[4].toString() + FullDateTarget[5].toString()
+                targetYear = FullDateTarget[7].toString() + FullDateTarget[8].toString() + FullDateTarget[9].toString() +FullDateTarget[10].toString()
+            }
+            catch(E:Exception){
+              Log.i("Error","Error")
+            }
+            // Var
+            var calendar = Calendar.getInstance().getTime()
+            var dateFormat = SimpleDateFormat("dd")
+            var currentDate = dateFormat.format(calendar)
+            dateFormat = SimpleDateFormat("MMM")
+            var currentMonth = dateFormat.format(calendar)
+            dateFormat = SimpleDateFormat("yyyy")
+            var currentYear = dateFormat.format(calendar)
+            // Var
+            var targetMonthInt = CalendarToInt(targetMonth)
+            var currentMonthInt = CalendarToInt(currentMonth)
+
+            var i = 0
+            var totalTargetMonth = 0
+            do{
+                totalTargetMonth += cal.d[i]
+                i++
+            }while(i < targetMonthInt)
+            var totalCurrentMonth =  0 ; i = 0
+            do{
+                totalCurrentMonth += cal.d[i]
+                i++;
+            }while(i < currentMonthInt)
+            //INTENSE MATH
+            var differentYear = (targetYear.toInt() - currentYear.toInt())
+            if(differentYear >=  0) {
+                var yearsDay = 0
+                var totalCurrent = 0
+                var totalTarget = 0
+                if(currentYear < targetYear){
+                    yearsDay = ((targetYear.toInt() - currentYear.toInt()) + 1 )* 365
+                    totalTarget = totalTargetMonth + targetDate.toInt() + yearsDay
+                }else{
+                    totalTarget = totalTargetMonth + targetDate.toInt() + (differentYear * 365)
+                }
+
+                totalCurrent = totalCurrentMonth + currentDate.toInt() + (differentYear * 365)
+                var compareDate = totalTarget - totalCurrent
+                if(compareDate < 0){
+                    return compareDate.toString()
+                }else{
+                    return compareDate.toString()
+                }
+            }else{
+                return " -1 "
+            }
+            return null
+
+    }
+    fun getDateMonthFromArray(FullDateTarget:String) : String?{
         var targetDate = FullDateTarget[0].toString() + FullDateTarget[1].toString()
         var targetMonth = FullDateTarget[3].toString() + FullDateTarget[4].toString() + FullDateTarget[5].toString()
-        var targetYear = FullDateTarget[7].toString() + FullDateTarget[8].toString() + FullDateTarget[9].toString() +FullDateTarget[10].toString()
-        println("Target DATE : " + targetDate +" "+ targetMonth +" " + targetYear)
-        // Var
-        var calendar = Calendar.getInstance().getTime()
-        var dateFormat = SimpleDateFormat("dd")
-        var currentDate = dateFormat.format(calendar)
-        dateFormat = SimpleDateFormat("MMM")
-        var currentMonth = dateFormat.format(calendar)
-        dateFormat = SimpleDateFormat("yyyy")
-        var currentYear = dateFormat.format(calendar)
-        println("Current DATE : " + currentDate +" "+ currentMonth +" " + currentYear)
-        // Var
-        var targetMonthInt = CalendarToInt(targetMonth)
-        var currentMonthInt = CalendarToInt(currentMonth)
-        println("Current Month Int : " + targetMonth + " " + currentMonthInt)
-
-        var i = 0
-        var totalTargetMonth = 0
-        do{
-            totalTargetMonth += cal.d[i]
-            i++
-        }while(i < targetMonthInt)
-        var totalCurrentMonth =  0 ; i = 0
-        do{
-            totalCurrentMonth += cal.d[i]
-            i++;
-        }while(i < currentMonthInt)
-        //INTENSE MATH
-        var differentYear = (targetYear.toInt() - currentYear.toInt())
-        if(differentYear >=  0) {
-            var yearsDay = 0
-            var totalCurrent = 0
-            var totalTarget = 0
-            if(currentYear < targetYear){
-                yearsDay = ((targetYear.toInt() - currentYear.toInt()) + 1 )* 365
-                println(yearsDay)
-                totalTarget = totalTargetMonth + targetDate.toInt() + yearsDay
-            }else{
-                totalTarget = totalTargetMonth + targetDate.toInt() + (differentYear * 365)
-            }
-
-            totalCurrent = totalCurrentMonth + currentDate.toInt() + (differentYear * 365)
-            var compareDate = totalTarget - totalCurrent
-            println("TOTAl : " + totalTarget + " " + totalCurrent)
-            if(compareDate < 0){
-                return compareDate.toString()
-            }else{
-                return compareDate.toString()
-            }
-        }else{
-            return " -1 "
-        }
+        return ("$targetDate/$targetMonth")
     }
 
     fun intToCalendar(number:Int):String
@@ -202,4 +213,25 @@ class FirebaseCalendar{
 
         return numberInter
     }
+    fun getHours() : String{
+        var h = Calendar.getInstance().time
+        var sh = SimpleDateFormat("hh").format(h)
+        return sh
+    }
+    fun getSeconds() : String{
+        var h = Calendar.getInstance().time
+        var sh = SimpleDateFormat("ss").format(h)
+        return sh
+    }
+    fun getMinute() : String{
+        var h = Calendar.getInstance().time
+        var sh = SimpleDateFormat("mm").format(h)
+        return sh
+    }
+    fun getLocale() : String{
+        var h = Calendar.getInstance().time
+        var sh = SimpleDateFormat("a").format(h)
+        return sh
+    }
+
 }

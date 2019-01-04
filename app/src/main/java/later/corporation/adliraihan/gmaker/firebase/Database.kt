@@ -1,11 +1,17 @@
 package later.corporation.adliraihan.gmaker.firebase
 
+import android.app.Notification
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
-import android.renderscript.Sampler
-import android.widget.Toast
+import android.content.Intent
+import android.support.v4.app.NotificationCompat
+import android.util.Log
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_login.*
-import java.io.IOException
+import later.corporation.adliraihan.gmaker.LandingActivity
+import later.corporation.adliraihan.gmaker.R
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Database
 {
@@ -17,78 +23,56 @@ class Database
         val user_agenda = "/account_agenda/"
         val user_account = "/account_information/"
     }
-
-    // ================================================================ //
-    // ==          READ DATA ON COMMIT WITH SHARED PREFERENCE                ==//
-    // ================================================================ /
-    fun onRead(){
-        var Pref = variables.myRead.child("message")
-        val functionImplements = Pref.orderByChild("messageUser")
+    fun getAvailableSchedulef(userLogged:String,context:Context,mNotification:NotificationManager){
+        var Pref = Database.variables.myRead.child("user_$userLogged"  + url.user_agenda )
+        var CY = Calendar.getInstance().time
+        var CYs = SimpleDateFormat("dd/MMM").format(CY)
+        val functionImplements = Pref.orderByChild("title")
         functionImplements.addValueEventListener(object : ValueEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-                //Public function if error
-            }
-
+            override fun onCancelled(p0: DatabaseError) {}
             override fun onDataChange(p0: DataSnapshot) {
                 val children = p0.children
-                println("Adi : " + p0.children.count().toString())
-                println("VALUE COSTUM : " + p0.child("messageUser").value)
-            }
+                if(p0.children.count() == 0 ){
+                }else{
+                    var MapAvailable:Map<Int,String> =mapOf()
+                    children.forEach {
+                        var datePointer = FirebaseCalendar().CompareTwo("",it.child("date").value.toString())
+                        if(datePointer.equals(" -1 ")){
+                            var removeDb =  Database.variables.myRead.child("user_$userLogged" + Database.url.user_agenda + "/${it.child("title").value.toString()}" )
+                            Log.i("DbStatus","Removed")
+                        }else{
+                            Log.i("MAP", "$CYs = ${FirebaseCalendar().getDateMonthFromArray((it.child("date").value.toString()))}")
+                            if(FirebaseCalendar().getDateMonthFromArray(it.child("date").value.toString()).equals(CYs)){
+                                MapAvailable = mapOf(
+                                        0 to children.count().toString(),
+                                        1 to it.child("title").value.toString(),
+                                        2 to it.child("description").value.toString(),
+                                        3 to it.child("time").value.toString(),
+                                        4 to it.child("date").value.toString(),
+                                        5 to it.child("type").value.toString())
+                            }
+                        }
+                    }
 
+                    val Intain = Intent(context, LandingActivity::class.java)
+                    var stringTextNote = ""
+                    if(MapAvailable.get(0)!!.toInt() == 0)
+                        stringTextNote = "Tap to see this agenda."
+                    else
+                        stringTextNote = "Tap to see ${MapAvailable.get(0)} more agendas."
+
+                    var penIntent = PendingIntent.getActivity(context, 1, Intain,0)
+                    var mBuilder = NotificationCompat.Builder(context, 0.toString())
+                            .setSmallIcon(R.drawable.notification_template_icon_bg)
+                            .setContentTitle("Reminder Agenda : ${MapAvailable.get(1)}")
+                            .setContentText(stringTextNote)
+                            .setPriority(NotificationCompat.FLAG_ONGOING_EVENT)
+                            .setContentIntent(penIntent)
+                            .build()
+                    mBuilder.flags  = Notification.FLAG_NO_CLEAR
+                    mNotification.notify(0,mBuilder)
+                }
+            }
         })
     }
-
-    fun fail():Boolean{
-        return false;
-    }
-
-    fun onWrite(){
-        var iUsername = "adliraihan"
-        var iPassword = "asd123456789ss"
-        var iPath = "user_" + iUsername
-        onWriteCommitdataUser(iUsername,iPassword,iPath)
-        onWriteCommitAgenda(iPath)
-    }
-    // ================================================================ //
-    // ==          WRITE DATA ON COMMIT WITH SHARED PREFERENCE                == //
-    // ================================================================ //
-    fun onWriteCommitdataUser(
-                      username:String?,password:String?,
-                              pathParent:String?){
-        var accountStoreUsername = variables.dbConnection.getReference(pathParent + url.user_account + "username")
-        var accountStorePassword = variables.dbConnection.getReference(pathParent +  url.user_account + "password")
-        if(username.equals(null) || password.equals(null)){
-            throw IOException ("Tolong isi Seluruhnya")
-        }else{
-            accountStoreUsername.setValue(username);accountStorePassword.setValue(password)
-        }
-    }
-    fun onWriteCommitAgenda(pathParent: String?){
-        var i = 0
-        do{
-            var agendaStoreTitle = variables.dbConnection.getReference(pathParent + url.user_agenda
-                    + "Beli Arduino" +  i.toString() +"/title")
-            var agendaStoreDesc = variables.dbConnection.getReference(pathParent + url.user_agenda
-                    + "Beli Arduino" +  i.toString() + "/description")
-            var agendaStoreDate = variables.dbConnection.getReference(pathParent + url.user_agenda
-                    + "Beli Arduino" +  i.toString() + "/date")
-            var agendaStoreTime = variables.dbConnection.getReference(pathParent + url.user_agenda
-                    + "Beli Arduino" +  i.toString() + "/time")
-            var agendaStoretype = variables.dbConnection.getReference(pathParent + url.user_agenda
-                    + "Beli Arduino" +  i.toString() + "/type")
-            agendaStoreTitle.setValue("Agenda Beta Test " + i.toString())
-            agendaStoreDesc.setValue("Beli arduino di plaza yang harganya Rp 420.000,00 ")
-            agendaStoreTime.setValue("6:30 PM")
-            agendaStoreDate.setValue("12 Mar 2019")
-            agendaStoretype.setValue("Important")
-            i++
-        }while(i <= 10)
-    }
-
-
-    fun onSharedPref(){
-        //Fungsi akan dipanggil dari login
-    }
-
-
 }

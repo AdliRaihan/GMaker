@@ -56,13 +56,8 @@
         <activity android:name=".firebase.CreateDailyActivity"/>
 
         <service
-                android:name=".firebase.BGServices"
+                android:name=".firebase.RSSPullService"
                 android:exported="false">
-        </service>
-        <service
-                android:name=".firebase.serviceBG"
-                android:enabled="true"
-                android:exported="true">
         </service>
     </application>
 

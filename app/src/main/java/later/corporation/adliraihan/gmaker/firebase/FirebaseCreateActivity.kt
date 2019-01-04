@@ -2,6 +2,7 @@ package later.corporation.adliraihan.gmaker.firebase
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.opengl.Visibility
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,8 @@ import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.activity_firebase_create.*
 import kotlinx.android.synthetic.main.dialog_calendar.*
 import later.corporation.adliraihan.gmaker.R
+import java.text.SimpleDateFormat
+import java.util.*
 
 class FirebaseCreateActivity : AppCompatActivity() {
 
@@ -63,6 +66,7 @@ class FirebaseCreateActivity : AppCompatActivity() {
     fun calendarDialog(konteks:Context){
         var DialogCalendar = Dialog(konteks)
         DialogCalendar.setContentView(R.layout.dialog_calendar)
+        DialogCalendar.calendarViewCreate.minDate = Calendar.getInstance().timeInMillis
         DialogCalendar.show()
         DialogCalendar.calendarViewCreate.setOnDateChangeListener { view, year, month, dayOfMonth ->
             var monthi = FirebaseCalendar.cal.m[month]
@@ -94,7 +98,7 @@ class FirebaseCreateActivity : AppCompatActivity() {
             agendaTarget.setValue(StartAgenda.text.toString())
             agendaType.setValue(typeDataAgenda.selectedItem.toString())
             Toast.makeText(this,"Agenda stored successfully" , Toast.LENGTH_SHORT).show()
-            finish()
+            startActivity(Intent(this,FirebaseLandingActivity::class.java))
         }
         catch (E:Exception){
             Toast.makeText(this,"Unable to store agenda" , Toast.LENGTH_SHORT).show()
