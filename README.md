@@ -3,24 +3,53 @@
 <h2> Status program : sudah dapat digunakan namun ceritanya masih <i>early-access</i></h2>
 
 <h6>
+Markdown masih berupa beberapa informasi tentang pengembangan aplikasi ini.<br>
 <b>highlight</b><br>
 <a href="https://github.com/Thibobs/GMaker/tree/master/app/src/main/java/later/corporation/adliraihan/gmaker">Mysql Source Code</a><br>
 <a href="https://github.com/Thibobs/GMaker/tree/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase">Firebase source Code</a><br>
 <a href="https://github.com/Thibobs/GMaker/tree/master/app/src/main/java/later/corporation/adliraihan/gmaker/adapter">adapter</a><br>
 <b>Algorithm Logic</b> made by me<br>
 <a href="https://github.com/Thibobs/GMaker/blob/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase/CreateDailyFunctionTimer.kt">Daily Timer Validation</a><br>
-<a href="https://github.com/Thibobs/GMaker/blob/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase/FirebaseCalendar.kt">Calendar picker & Time difference Algorithm</a><br>
-<a href="https://github.com/Thibobs/GMaker/blob/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase/FirebaseCalendar.kt">Background services for reminding ongoing schedule</a><br>
+<a href="https://github.com/Thibobs/GMaker/blob/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase/">Calendar picker & Time difference Algorithm</a><br>
+<a href="https://github.com/Thibobs/GMaker/blob/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase/">Background services for reminding ongoing schedule</a><br>
   <b>Features</b><br>
   - Almost all activity are userfriendly , ada beberapa fitur yg mempermudah user dalam menggunakan app ini<br>
   - Reminder<br>
   - Realtime database's<br>
   - etc<br>
 </h6><br><br>
+
+  <b>Release Version : 1.0 <i>Masih dalam pengembangan</i></b><br>
+  Aplikasi sekarang sudah dapat di download di 
+  <a href="https://drive.google.com/file/d/1qJd5-rkZunbi-uSx3f0LNGeYgkPpgjd0/view">sini</a><br>
+  <i>Application now can be downloaded from <a href="https://drive.google.com/file/d/1qJd5-rkZunbi-uSx3f0LNGeYgkPpgjd0/view">here</a></i>
+  <h5>Tested on Xiaomi Redmi A4</h5>
+  <br>
+  <i>Lastest Update : 04/January/2019</i>
+  <ul>
+  <li>Notifications</li>
+  <li>Xiaomi Hotfix</li>
+  <li>Bug fixes</li>
+  </ul>
+
 <table>
   <tr>
-    <td colspan="3">NEW UPDATE</td>
+  <td><img src="aplikasi_image/NotificationUpdate_1.jpg" width="128px"></td>
+  <td><img src="aplikasi_image/NotificationUpdate_2.jpg" width="128px"></td>
   </tr>
+  <tr>
+    <td colspan="2">Notification akan muncul dan memiliki sifat <i>Unremovable</i> jika ada agenda pada hari yang ditentukan. <i>detail activity tersebut masih dalam pengembangan design</i></td>
+  </tr>
+  </table>
+
+<i>seluruh image dapat dilihat  <a href="https://github.com/Thibobs/GMaker/tree/master/aplikasi_image">disini</a>
+
+Developingnya sampai saat ini baru 30%.
+email saya adliraihan002@gmail.com
+
+<h2>OLD Dec 30, 2018</h2>
+<h6>
+<table>
   <tr>
     <td>Final schedule Design</td>
     <td>Notification</td>
@@ -28,9 +57,9 @@
   </tr>
   
   <tr>
-  <td><img src="aplikasi_image/ServicesNotification.png" width="128px"></td>
-  <td><img src="aplikasi_image/notification_1.png" width="128px"></td>
-  <td><img src="aplikasi_image/notificationwithServices.png" width="128px"></td>
+  <td><img src="aplikasi_image/ServicesNotification.png" width="64px"></td>
+  <td><img src="aplikasi_image/notification_1.png" width="64px"></td>
+  <td><img src="aplikasi_image/notificationwithServices.png" width="64px"></td>
   </tr>
   
   <tr>
@@ -45,7 +74,7 @@
     <td><s>Next Update is in progress</s> <b>Sudah di implementasikan pada update yang baru</b></td>
   </tr>
   <tr>
-    <td><img src="aplikasi_image/1546094694914.jpg" width="512px"></td>
+    <td><img src="aplikasi_image/1546094694914.jpg" width="64px"></td>
   </tr>
   <tr>
     <td>
@@ -85,7 +114,4 @@ dari mulai pertama pembuatan sampai akhir serta beberapa design yang di rancang 
   </tr>
 </table>
 </center>
-<i>seluruh image dapat dilihat  <a href="https://github.com/Thibobs/GMaker/tree/master/aplikasi_image">disini</a>
-
-Developingnya sampai saat ini baru 20% dan pengerjaan baru 2 minggu saja karena terpotong dengan jadwal kuliah serta asisten dosen.
-email saya adliraihan002@gmail.com
+</h6>
