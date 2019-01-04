@@ -25,16 +25,16 @@ Markdown masih berupa beberapa informasi tentang pengembangan aplikasi ini.<br>
   - etc<br>
 </h6><br><br>
 
-  <b>Latest Version : 1.0.0.5 <i>Pengembangan & Hotfix</i></b><br>
+  <b>Latest Application Version : 1.0.0.5 <i> Masih tahap pengembangan & Hotfix</i></b><br>
   Download Here <a href="https://drive.google.com/open?id=1UUeeY85cbfOyiGq5a7be5L2AY8ZO7V1I">Here</a><br><br>
-  <b>Daftar bug yang teratasi</b> :<br>
-  Muatan service membuat error seluruh aplikasi / Banyak Intent Stopped Working . <br>
-  Aplikasi tidak dapat membuka agenda yang sudah expired / Crash .<br>
-  Memoryleaking <br><br>
-  <b>Add New Feature</b> :<Br>
+  <b>Daftar bug yang sudah diatasi</b> :<br>
+ 1. Muatan service membuat error seluruh aplikasi / Banyak Intent Stopped Working . <br>
+ 2. Aplikasi tidak dapat membuka agenda yang sudah expired / Crash .<br>
+3.  Memoryleaking <br><br>
+  <b>New Feature Added</b> :<Br>
   Notifications "stacking" <br>
   <img src="aplikasi_image/UpdateDadakan.jpg" width="256px"><br>
-  <b>Note From Me:</b>
+  <b>Note:</b>
   stacking notification sudah secara programmatically dan data diambil melalui database , source code versi terbaru belum bisa saya upload , ini hanya hotfix karena pada versi sebelumnya aplikasi sama sekali tidak bisa digunakan.<br><br>
   <hr/>
   <b>Old Version</b><br>
@@ -42,7 +42,7 @@ Markdown masih berupa beberapa informasi tentang pengembangan aplikasi ini.<br>
   
   <h5>Tested on Xiaomi Redmi A4</h5>
   <br>
-  <i>Lastest Update : 04/January/2019</i>
+  <i>Latest Github Source Code Update : 04/January/2019</i>
   <ul>
   <li>Notifications</li>
   <li>Xiaomi Bugfix</li>
