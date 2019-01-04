@@ -2,10 +2,10 @@
 
 <h2> Status program : sudah dapat digunakan namun ceritanya masih <i>early-access</i></h2>
 
-<code>
-  [ENG] i'm currently unemployed and if you have some interest about this project and me... you can download my CV <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">Here</a> . [IDN]
- Jika anda mencari seorang programmer android , kebetulan saya tertarik dengan posisi android developer ataupun WebAppDev , jika anda tertarik dengan aplikasi yang sedang saya buat anda bisa mendownload sementara CV saya di <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">sini</a>
-</code>
+  [ENG] i'm currently unemployed and if you have some interest about this project and me... :D you can download my CV <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">Here</a> . 
+  <br><br>
+  [IDN]
+ Jika anda mencari seorang programmer android , saya sangat tertarik untuk mengisi posisi android developer ataupun Web App Developer , CV saya dapat didownload <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">disini</a>
 
 
 <h6>
