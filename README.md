@@ -5,7 +5,7 @@
   [ENG] i'm currently unemployed and if you have some interest about this project and me... :D you can download my CV <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">Here</a> . 
   <br><br>
   [IDN]
- Jika anda mencari seorang programmer android , saya sangat tertarik untuk mengisi posisi android developer ataupun Web App Developer , CV saya dapat didownload <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">disini</a>
+ Jika anda mencari seorang programmer android , saya sangat tertarik untuk mengisi posisi tersebut maupun Web App Developer , CV saya dapat didownload <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">disini</a>
 
 
 <h6>
