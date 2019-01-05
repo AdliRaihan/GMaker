@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "819760937437",
+    "firebase_url": "https://gmaker-9c3cb.firebaseio.com",
+    "project_id": "gmaker-9c3cb",
+    "storage_bucket": "gmaker-9c3cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819760937437:android:579a12939935f383",
+        "android_client_info": {
+          "package_name": "later.corporation.adliraihan.gmaker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819760937437-uh3n9mj6e1kf9vbisusne8nho6el7ubl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "later.corporation.adliraihan.gmaker",
+            "certificate_hash": "9ad53f9d0068312f8adc621e3fd20323231ff5cf"
+          }
+        },
+        {
+          "client_id": "819760937437-iobbjtg563stj378c49frqntkjctu1so.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ_2F-jWW_BU4en56spOwJ-w3C0Zs7kSo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "819760937437-iobbjtg563stj378c49frqntkjctu1so.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
