@@ -25,7 +25,7 @@ Markdown masih berupa beberapa informasi tentang pengembangan aplikasi ini.<br>
   - etc<br>
 </h6><br><br>
 
-  <b>Latest Application Version : 1.0.0.5 <i> Masih tahap pengembangan & Hotfix</i></b><br>
+  <b>Latest Application Version : 1.0.0.52 <i> Masih tahap pengembangan</i></b><br>
   Download via <a href="https://github.com/Thibobs/GMaker/releases/tag/v.1.0.0.52">Pre release via Github</a><br><br>
   <b>Daftar bug yang sudah diatasi</b> :<br>
  1. Muatan service membuat error seluruh aplikasi / Banyak Intent Stopped Working . <br>
@@ -38,8 +38,8 @@ Markdown masih berupa beberapa informasi tentang pengembangan aplikasi ini.<br>
   stacking notification sudah secara programmatically dan data diambil melalui database , source code versi terbaru belum bisa saya upload , ini hanya hotfix karena pada versi sebelumnya aplikasi sama sekali tidak bisa digunakan.<br><br>
   <hr/>
   <b>Old Version</b><br>
-  Version 1 : <a href="https://drive.google.com/file/d/1qJd5-rkZunbi-uSx3f0LNGeYgkPpgjd0/view">sini</a> <i>Versi Github</i><br>
-  
+  Version 1 : <a href="https://drive.google.com/file/d/1qJd5-rkZunbi-uSx3f0LNGeYgkPpgjd0/view">Download</a> <i>Versi source code Github</i><br>
+  Version 1.0.0.5 : <a href="https://drive.google.com/open?id=1UUeeY85cbfOyiGq5a7be5L2AY8ZO7V1I">Download</a><br>
   <h5>Tested on Xiaomi Redmi A4</h5>
   <br>
   <i>Latest Github Source Code Update : 04/January/2019</i>
