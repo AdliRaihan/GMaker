@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@android:color/transparent">
+    <LinearLayout
+        android:background="@drawable/edittext_primary_drwbl_create"
+        android:orientation="vertical"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/logs_error"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="@string/login_popup_failed_txt_1"
+            android:textSize="16dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/infoLogs"
+            android:paddingHorizontal="30dp"
+            android:paddingBottom="30dp"
+            android:text="@string/login_popup_failed_txt_2"
+            android:textColor="@color/colorPrimaryDark_Opacity1"
+            android:textSize="12dp"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.25dp"
+            android:background="@color/colorPrimaryDark_Opacity2"/>
+        <TextView
+            android:padding="15dp"
+            android:textSize="16dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/tryAgain_btn"
+            android:text="@string/login_popup_failed_txt_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+</LinearLayout>

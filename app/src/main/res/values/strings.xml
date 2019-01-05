@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">GMaker</string>
+
+
+    <!-- global -->
+    <string name="hello_label">Hello </string>
+    <string name="username_label">Username</string>
+    <string name="password_label">Password</string>
+    <string name="login_label">LOGIN</string>
+    <string name="login_label_info_header">GMAKER</string>
+    <string name="login_label_info">Silahkan login sebelum menggunakan app ini. </string>
+    <string name="daftar_label">DAFTAR</string>
+    <!-- Loigin -->
+    <string name="login_welcome_label">Welcome</string>
+    <string name="login_appname_label">Agenda Maker</string>
+    <string name="login_appdesc_label">Make your day more efficient than ever ! </string>
+    <string name="login_appdesc_label_2">Adli Raihan _ 0616101001</string>
+    <string name="login_register_label">Daftar ?</string>
+    <!-- PopUP-->
+    <string name="login_popup_header_beta">Developer</string>
+    <string name="login_popup_header">Hello</string>
+    <string name="login_popup_desc">Masuk Developer Mode ?</string>
+    <string name="login_popup_option_1">Ya</string>
+    <string name="login_popup_option_2">Tidak</string>
+
+    <!-- Daftar -->
+    <string name="hint_daftar_username">Username Anda</string>
+    <string name="hint_daftar_password">Password Anda</string>
+    <string name="hint_daftar_password_conf">Konfirmasi Password Anda</string>
+    <string name="daftar_label_header">Daftar</string>
+
+
+    <string name="lorem_ipsum_sm">Lorem Ipsum Bachelor</string>
+    <string name="lorem_ipsum_xl"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Aliquam vitae libero risus. Suspendisse non nisl turpis. Aliquam sagittis quis lacus sed
+        pulvinar. Pellentesque vel sem vel nunc rhoncus fringilla. Sed blandit quam a purus aliquet, sit
+        amet tristique leo aliquam. Donec ut magna sed quam cursus consequat. Aliquam dui quam, dictum ac
+        auctor vitae, ornare eget quam.</string>
+    <string name="Details_header_label">Agenda</string>
+    <!-- Landing -->
+    <string name="landing_activity_agenda_label_1">Current Agenda</string>
+    <string name="landing_activity_agenda_label_2">Today Agenda</string>
+    <string name="landing_activity_ifnull">Kelihatannya anda tidak mempunyai agenda , Mulai untuk membuat agenda</string>
+    <string name="landing_activity_ifnull_header">Oops</string>
+    <string name="landing_activity_ifnull_create">Buat agenda anda sekarang !</string>
+    <string name="Landing_list_agenda">List Agenda Swipe Left</string>
+    <string name="Landing_list2_agenda">List Agenda Vertical (Detailed)</string>
+
+    <string name="detail_label_header">Agenda Details</string>
+    <string name="detail_label_appointment">365 Days left</string>
+    <string name="detail_label_description">Description Detail</string>
+    <string name="detail_label_editor">edit</string>
+    <!-- Temp -->
+
+    <string name="error_1_eng">Check your Internet Connection !</string>
+    <string name="error_1_id">Cek Koneksi Internet Anda !</string>
+
+    <string name="login_popup_failed_header">Status :</string>
+    <string name="login_popup_failed_txt_1">Incorect password for</string>
+    <string name="login_popup_failed_txt_2">The password you entered is incorrect. Please try again.</string>
+    <string name="login_popup_failed_txt_3">Try Again</string>
+
+
+    <string name="login_onsubmit_loading">Loading</string>
+    <string name="retry_conn_label">No Connectivity</string>
+    <string name="retry_conn_label_btn">Retry</string>
+
+    <string name="landing_highlight_header">Statistics 2018</string>
+    <string name='landing_highlight_1'>Total Agenda</string>
+    <string name='landing_highlight_2'>Agenda Selesai</string>
+    <string name="landing_highlight_3">Agenda deleted</string>
+    <string name="landing_highlight_4">Agenda Created</string>
+    <!-- drawable -->
+    <string name="drawer_menu_header"></string>
+    <string name="drawer_menu_sub_label_1">TOOLS</string>
+    <string name="drawer_menu_sub_label_2">INFORMATION</string>
+    <string name="drawer_menu_sub_label_3">ACCOUNT</string>
+
+    <string name="drawer_menu_account_info">Account</string>
+    <string name="drawer_menu_account_sign_out">Sign Out</string>
+    <string name="drawer_menu_account_setting">Settings</string>
+    <string name="drawer_menu_done_all">History Activity</string>
+    <string name="drawer_menu_delete">Delete History</string>
+    <string name="drawer_menu_add">Create Agenda</string>
+    <string name="drawer_menu_premium">Subsribe App</string>
+    <string name="drawer_menu_addDaily">Add schedule Tomorrow</string>
+
+    <string name="note_created_agenda">
+        Note : this application does not have clock target , the notification will appeared when the date target and date system are matched.
+    </string>
+
+    <string-array name="type_agenda">
+        <item>Not important</item>
+        <item>Important</item>
+    </string-array>
+
+
+    <!-- Daerah ClockPicker -->
+    <string name="clockpicker_label"></string>
+
+
+</resources>
