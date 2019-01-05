@@ -26,7 +26,7 @@ Markdown masih berupa beberapa informasi tentang pengembangan aplikasi ini.<br>
 </h6><br><br>
 
   <b>Latest Application Version : 1.0.0.52 <i> Masih tahap pengembangan</i></b><br>
-  Download via <a href="https://github.com/Thibobs/GMaker/releases/tag/v.1.0.0.52">Pre release via Github</a><br><br>
+  Download <a href="https://github.com/Thibobs/GMaker/releases/tag/v.1.0.0.52">Pre release via Github</a><br><br>
   <b>Daftar bug yang sudah diatasi</b> :<br>
  1. Muatan service membuat error seluruh aplikasi / Banyak Intent Stopped Working . <br>
  2. Aplikasi tidak dapat membuka agenda yang sudah expired / Crash .<br>
