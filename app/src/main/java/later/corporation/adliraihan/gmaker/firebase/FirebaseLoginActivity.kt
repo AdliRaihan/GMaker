@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
@@ -27,6 +28,9 @@ class FirebaseLoginActivity : AppCompatActivity(){
             {
                 loginbtn_intent.apply {
                     setText(resources.getString(R.string.login_onsubmit_loading))
+                    Handler().postDelayed({
+                     setText("LOGIN")
+                    },5000)
                 }
                 readLogin(username_Input.text.toString(),password_Input.text.toString(),this)
                 // InitializeLogin(password_Input.text.toString(),this)
@@ -34,7 +38,6 @@ class FirebaseLoginActivity : AppCompatActivity(){
         }
 
         daftar_txt_btn.setOnClickListener{
-            println("BUTTON MESSAGE : ITS CLICKED!")
             var Intent = Intent(this,FirebaseDaftarActivity::class.java)
             startActivity(Intent)
         }
@@ -112,7 +115,6 @@ class FirebaseLoginActivity : AppCompatActivity(){
         return super.onKeyDown(keyCode, event)
     }
 
-
     // ================
     // SET PRIVILIAGES FOR ANYBODY WHO
     // ================
@@ -122,6 +124,7 @@ class FirebaseLoginActivity : AppCompatActivity(){
         val editor = getSharedPref.edit()
         editor.putString("username",username_Input.text.toString())
         if(editor.commit()){
+            this.finish()
             var Intent = Intent(this,FirebaseLandingActivity::class.java)
             startActivity(Intent)
         }

@@ -6,6 +6,7 @@ import android.app.TimePickerDialog
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.ViewModel
 import android.content.Context
+import android.content.Intent
 import android.opengl.Visibility
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -260,10 +261,12 @@ class CreateDailyActivity : AppCompatActivity() {
         }
 
         createsc_back.setOnClickListener {
-            var setUser  = FirebaseLoginActivity().FgetSharedPreferenceforWorld(this)
-            var removeDb = Database.variables.dbConnection.getReference( "user_$setUser" + "/account_schedule/schedule_$scheduleIndex")
-            removeDb
-                    .removeValue()
+            this.finish()
+            startActivity(Intent(this,FirebaseLandingActivity::class.java))
+//            var setUser  = FirebaseLoginActivity().FgetSharedPreferenceforWorld(this)
+//            var removeDb = Database.variables.dbConnection.getReference( "user_$setUser" + "/account_schedule/schedule_$scheduleIndex")
+//            removeDb
+//                    .removeValue()
         }
 
     }

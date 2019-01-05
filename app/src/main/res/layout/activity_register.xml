@@ -6,79 +6,116 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_gravity="center">
-    <RelativeLayout
-        android:background="@color/colorPrimaryDark_Opacity1"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:scaleType="centerCrop"
-            android:src="@mipmap/neil_bg_failed"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        android:layout_height="wrap_content">
+
         <LinearLayout
-            android:background="@color/colorPrimaryDark_Opacity1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center|left"
-            android:padding="50dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/scriptuitbl"
-                android:gravity="center"
-                android:textColor="@color/colorAccent"
-                android:textSize="28dp"
-                android:text="@string/daftar_label"
-                android:layout_marginBottom="20dp"/>
-            <EditText
-                android:id="@+id/username_daftar"
-                android:maxLength="12"
-                android:textColor="@color/colorDawnBlue"
-                android:paddingHorizontal="40dp"
-                android:paddingVertical="10dp"
-                android:hint="@string/hint_daftar_username"
-                android:background="@drawable/background_solid_radius100_outline"
+            android:orientation="vertical" >
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:textColorHint="@color/colorDawnBlue"
-                android:textSize="12dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"/>
-            <EditText
-                android:id="@+id/password_daftar"
-                android:layout_marginVertical="5dp"
-                android:maxLength="12"
-                android:inputType="textPassword"
-                android:textColor="@color/colorDawnBlue"
-                android:paddingHorizontal="40dp"
-                android:paddingVertical="10dp"
-                android:textSize="12dp"
-                android:hint="@string/hint_daftar_password"
-                android:background="@drawable/background_solid_radius100_outline"
-                android:textColorHint="@color/colorDawnBlue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <EditText
-                android:id="@+id/password_daftar_confrim"
-                android:layout_marginVertical="5dp"
-                android:maxLength="12"
-                android:inputType="textPassword"
-                android:textColor="@color/colorDawnBlue"
-                android:paddingHorizontal="40dp"
-                android:paddingVertical="10dp"
-                android:textSize="12dp"
-                android:hint="@string/hint_daftar_password_conf"
-                android:background="@drawable/background_solid_radius100_outline"
-                android:textColorHint="@color/colorDawnBlue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <Button
-                android:id="@+id/submit_asDaftar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/daftar_label"
-                android:textColor="@android:color/white"
-                style="?android:borderlessButtonStyle"/>
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center|left"
+                    android:padding="50dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/backgraybtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_arrow_back_gray_24dp" />
+                        <TextView
+                            android:textAlignment="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/segoeui"
+                            android:gravity="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="22dp"
+                            android:text="@string/daftar_label"/>
+                    </RelativeLayout>
+                    <ImageView
+                        android:layout_marginVertical="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.25dp"
+                        android:background="@color/colorPrimaryDark_Opacity2"/>
+                    <TextView
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Terimakasih telah menggunakan app ini."/>
+                    <EditText
+                        android:id="@+id/username_daftar"
+                        android:maxLength="12"
+                        android:textSize="14dp"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
+                        android:hint="@string/hint_daftar_username"
+                        android:background="@drawable/edittext_primary_drwbl"
+                        android:layout_width="match_parent"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"/>
+                    <EditText
+                        android:id="@+id/password_daftar"
+                        android:layout_marginVertical="5dp"
+                        android:maxLength="12"
+                        android:inputType="textPassword"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
+                        android:textSize="14dp"
+                        android:hint="@string/hint_daftar_password"
+                        android:background="@drawable/edittext_primary_drwbl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/password_daftar_confrim"
+                        android:layout_marginVertical="5dp"
+                        android:maxLength="12"
+                        android:inputType="textPassword"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
+                        android:textSize="14dp"
+                        android:hint="@string/hint_daftar_password_conf"
+                        android:background="@drawable/edittext_primary_drwbl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <Button
+                        android:id="@+id/submit_asDaftar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/daftar_label"
+                        android:textColor="@android:color/darker_gray"
+                        style="?android:borderlessButtonStyle"/>
+
+                    <ImageView
+                        android:layout_marginVertical="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.25dp"
+                        android:background="@color/colorPrimaryDark_Opacity2"/>
+                    <TextView
+                        android:text="Lupa password ?"
+                        android:id="@+id/forgotpasswordondaftar"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/colorPrimaryDark_Opacity2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </RelativeLayout>
         </LinearLayout>
-    </RelativeLayout>
+    </ScrollView>
 </LinearLayout>

@@ -8,14 +8,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
+import android.view.KeyEvent
+import android.widget.*
 import com.google.firebase.database.core.view.View
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.activity_firebase_create.*
 import kotlinx.android.synthetic.main.dialog_calendar.*
 import later.corporation.adliraihan.gmaker.R
+import java.lang.StringBuilder
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,13 +24,9 @@ class FirebaseCreateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_firebase_create)
-
-
         var adapterS = ArrayAdapter.createFromResource(this,R.array.type_agenda,R.layout.support_simple_spinner_dropdown_item)
         adapterS.setDropDownViewResource(R.layout.spinner_adapter)
         typeDataAgenda.adapter = adapterS
-
-
         var setUser  = FirebaseLoginActivity().FgetSharedPreferenceforWorld(this)
         btnAgenda.setOnClickListener {
             if (titleDataAgenda.text.toString() != "" &&
@@ -41,13 +37,13 @@ class FirebaseCreateActivity : AppCompatActivity() {
         }
         creategenda_back.setOnClickListener{
             finish()
+            startActivity(Intent(this,FirebaseLandingActivity::class.java))
         }
         StartAgenda.setOnClickListener{
-            calendarDialog(this)
+            calendarDialog(this,StartAgenda)
         }
         DescDataAgenda.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
-
             }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
@@ -63,23 +59,39 @@ class FirebaseCreateActivity : AppCompatActivity() {
             }
         })
     }
-    fun calendarDialog(konteks:Context){
-        var DialogCalendar = Dialog(konteks)
-        DialogCalendar.setContentView(R.layout.dialog_calendar)
-        DialogCalendar.calendarViewCreate.minDate = Calendar.getInstance().timeInMillis
-        DialogCalendar.show()
-        DialogCalendar.calendarViewCreate.setOnDateChangeListener { view, year, month, dayOfMonth ->
-            var monthi = FirebaseCalendar.cal.m[month]
-            var domMod = ""
-            if(dayOfMonth.toString().length < 2)
-                domMod = "0" + dayOfMonth.toString()
-            else
-                domMod = dayOfMonth.toString()
 
-            StartAgenda.setText( domMod + "/" + monthi.toString() + "/" + year.toString())
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            finish()
+            startActivity(Intent(this,FirebaseLandingActivity::class.java))
         }
-       DialogCalendar.dateconfrim_btn.setOnClickListener{
-           DialogCalendar.hide()
+        return super.onKeyDown(keyCode, event)
+    }
+    fun calendarDialog(konteks:Context,editChange:Button){
+        var monthi:String?
+        var domMod:String?
+        Dialog(konteks).apply{
+            setContentView(R.layout.dialog_calendar)
+            calendarViewCreate.minDate = Calendar.getInstance().timeInMillis
+            show()
+            calendarViewCreate.setOnDateChangeListener { view, year, month, dayOfMonth ->
+                monthi = FirebaseCalendar.cal.m[month]
+                domMod = dayOfMonth.toString()
+                if(dayOfMonth.toString().length < 2)   domMod = "0" + dayOfMonth.toString()
+                // Suntik Text //
+                editChange.setText(
+                        StringBuilder().also {
+                            it.append("$domMod/")
+                                    .append("$monthi/")
+                                    .append("$year")
+                        }
+                )
+                dismiss()
+                if(isShowing) hide()
+            }
+            dateconfrim_btn.setOnClickListener{
+                hide()
+            }
         }
     }
     fun insertAgenda(){
@@ -98,6 +110,7 @@ class FirebaseCreateActivity : AppCompatActivity() {
             agendaTarget.setValue(StartAgenda.text.toString())
             agendaType.setValue(typeDataAgenda.selectedItem.toString())
             Toast.makeText(this,"Agenda stored successfully" , Toast.LENGTH_SHORT).show()
+            finish()
             startActivity(Intent(this,FirebaseLandingActivity::class.java))
         }
         catch (E:Exception){

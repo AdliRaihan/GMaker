@@ -7,9 +7,9 @@
     <string name="username_label">Username</string>
     <string name="password_label">Password</string>
     <string name="login_label">LOGIN</string>
-    <string name="login_label_info_header">Sign in</string>
-    <string name="login_label_info">Sebelum menggunakan app ini </string>
-    <string name="daftar_label">Daftar</string>
+    <string name="login_label_info_header">GMAKER</string>
+    <string name="login_label_info">Silahkan login sebelum menggunakan app ini. </string>
+    <string name="daftar_label">DAFTAR</string>
     <!-- Loigin -->
     <string name="login_welcome_label">Welcome</string>
     <string name="login_appname_label">Agenda Maker</string>
@@ -43,7 +43,7 @@
     <string name="landing_activity_ifnull">Kelihatannya anda tidak mempunyai agenda , Mulai untuk membuat agenda</string>
     <string name="landing_activity_ifnull_header">Oops</string>
     <string name="landing_activity_ifnull_create">Buat agenda anda sekarang !</string>
-    <string name="Landing_list_agenda">List Agenda Horizontal</string>
+    <string name="Landing_list_agenda">List Agenda Swipe Left</string>
     <string name="Landing_list2_agenda">List Agenda Vertical (Detailed)</string>
 
     <string name="detail_label_header">Agenda Details</string>

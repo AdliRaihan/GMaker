@@ -10,19 +10,38 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:textSize="22dp"
-            android:padding="10dp"
-            android:fontFamily="@font/segoeui"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pick your date "/>
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="0.25dp"
+            android:layout_height="1dp"
             android:background="@color/BColorPrimary"/>
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/segoeui"
+                android:padding="10dp"
+                android:text="Pick your date "
+                android:textSize="22dp" />
+            <ImageView
+                android:padding="5dp"
+                android:background="@drawable/button_agenda_primary"
+                android:id="@+id/dateconfrim_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="11dp"
+                android:src="@drawable/ic_check_cyan_24dp" />
+        </RelativeLayout>
     </LinearLayout>
     <CalendarView
+        android:nestedScrollingEnabled="false"
         android:minDate="01/01/2019"
         android:id="@+id/calendarViewCreate"
         android:layout_width="match_parent"
@@ -32,15 +51,9 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-         <TextView
-             android:id="@+id/dateconfrim_btn"
-             android:textAlignment="center"
-            android:padding="10dp"
-            android:textSize="18dp"
-            android:textColor="@color/colorAccent_2"
-            android:background="@color/BColorPrimary"
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Confrim"/>
+            android:layout_height="1dp"
+            android:background="@color/BColorPrimary"/>
     </LinearLayout>
 </LinearLayout>

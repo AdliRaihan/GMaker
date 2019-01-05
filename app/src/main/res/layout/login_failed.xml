@@ -5,36 +5,13 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/background_solid_radius_white5">
+    android:background="@android:color/transparent">
     <LinearLayout
+        android:background="@drawable/edittext_primary_drwbl_create"
         android:orientation="vertical"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:gravity="center">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:src="@mipmap/neil_bg_failed"
-                android:scaleType="centerCrop"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:background="@color/colorPrimaryDark_Opacity1"
-                android:paddingHorizontal="35dp"
-                android:foregroundGravity="center">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/login_popup_failed_header"
-                    android:textColor="@color/colorAccent_2"
-                    android:fontFamily="@font/scriptuitbl"
-                    android:textSize="28dp"/>
-            </LinearLayout>
-        </RelativeLayout>
         <TextView
             android:id="@+id/logs_error"
             android:layout_marginTop="10dp"
@@ -58,7 +35,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="0.25dp"
-            android:background="@color/colorDawnBlue"/>
+            android:background="@color/colorPrimaryDark_Opacity2"/>
         <TextView
             android:padding="15dp"
             android:textSize="16dp"

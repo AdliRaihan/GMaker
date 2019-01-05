@@ -2,7 +2,9 @@ package later.corporation.adliraihan.gmaker.firebase
 
 import android.app.Dialog
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -19,11 +21,30 @@ class FirebaseDaftarActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         submit_asDaftar.setOnClickListener{
-            onRegister()
+            validationRegister()
+        }
+        backgraybtn.setOnClickListener {
+            finish()
         }
     }
 
     var afterLoginReaderGoFinish = false;
+    fun validationRegister(){
+        // IMPLEMENT LATER
+        if(username_daftar.text.isEmpty()){
+        }else if(password_daftar.text.isEmpty()){
+        }else{
+            onRegister()
+        }
+    }
+    fun drawableChanger(Edittext:EditText,fail:Any?,reset:Any?){
+        Edittext.background.apply {
+            resources.getDrawable(R.drawable.edittext_primary_drwbl_wrong)
+            Handler().postDelayed({
+                resources.getDrawable(R.drawable.edittext_primary_drwbl)
+            },5000)
+        }
+    }
     fun onRegister(){
         var username = username_daftar.text.toString()
         var password = password_daftar.text.toString()
@@ -44,6 +65,7 @@ class FirebaseDaftarActivity : AppCompatActivity(){
                             D.setContentView(R.layout.login_failed)
                             D.logs_error.setText("The username already Exist !")
                             D.infoLogs.setText("Username " + username + " telah terdaftar didalam database kami.")
+                            if(D.isShowing) D.hide()
                             D.show()
                             D.tryAgain_btn.setOnClickListener(){
                                 username_daftar.setText("")

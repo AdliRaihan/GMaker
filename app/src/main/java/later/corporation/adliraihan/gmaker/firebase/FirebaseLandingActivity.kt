@@ -5,6 +5,8 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -59,9 +61,22 @@ class FirebaseLandingActivity : AppCompatActivity(){
         initializeAgenda()
         OngoingRightnow()
         tryNotification()
-        startService(Intent(this,RSSPullService::class.java))
+        setBroadcast()
+    }
+    //BROADCAST//
+    var FR = FirebaseReceiver()
+    fun setBroadcast(){
+        var vrl = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply {
+            addAction("android.net.conn.CONNECTIVITY_CHANGE")
+        }
+        registerReceiver(FR,vrl)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(FR)
+    }
+    //BROADCAST END
     fun initializeAgenda(){
         var Pref = Database.variables.myRead.child("user_" + username_logged.text.toString() + Database.url.user_agenda )
         val functionImplements = Pref.orderByChild("title")
@@ -81,21 +96,33 @@ class FirebaseLandingActivity : AppCompatActivity(){
                     landing_isnull.visibility = View.GONE
 
                     //VARIABLES//
+                    var agenda_judulToday = arrayListOf<String>()
                     var agenda_judul = arrayListOf<String>()
                     var agenda_desk = arrayListOf<String>()
                     var agenda_type = arrayListOf<String>()
                     var agenda_time = arrayListOf<String>()
                     var agenda_date = arrayListOf<String>()
-
                     //END VAR//
                     children.forEach {
+                        var CY = Calendar.getInstance().time
+                        var CYs = SimpleDateFormat("dd/MMM").format(CY)
                         agenda_judul.add(it.child("title").value.toString())
                         agenda_desk.add(it.child("description").value.toString())
                         agenda_time.add(it.child("time").value.toString())
                         agenda_date.add(it.child("date").value.toString())
                         agenda_type.add(it.child("type").value.toString())
+                        try{
+                            if(FirebaseCalendar().getDateMonthFromArray(it.child("date").value.toString()).equals(CYs)) {
+                                println("CYS : $CYs : Full Time ${FirebaseCalendar().getDateMonthFromArray(it.child("date").value.toString())}")
+                                agenda_judulToday.add(it.child("title").value.toString())
+                                RSSPullService().setAvailableSchedule(agenda_judulToday)
+                            }
+                        }
+                        catch (E:java.lang.Exception){
+                        }
                     }
                     try{
+                        viewAdapter = MyRecyclerAdapter(agenda_judul,agenda_type,agenda_time,agenda_date,agenda_desk,this@FirebaseLandingActivity)
                         viewManager = LinearLayoutManager(this@FirebaseLandingActivity,LinearLayout.HORIZONTAL,false)
                         viewAdapter = MyRecyclerAdapter(agenda_judul,agenda_type,agenda_time,agenda_date,agenda_desk,this@FirebaseLandingActivity)
                         recyclerView = findViewById<RecyclerView>(R.id.bottomRecycler).apply {
@@ -178,10 +205,12 @@ class FirebaseLandingActivity : AppCompatActivity(){
     fun doChildOpen(arts:Any){
         when(arts){
             "create"->{
+                finish()
                 var InterGlobal = Intent(applicationContext, FirebaseCreateActivity::class.java)
                 startActivity(InterGlobal)
             }
             "createdaily"->{
+
                 var InterGlobal = Intent(applicationContext, CreateDailyActivity::class.java)
                 startActivity(InterGlobal)
             }

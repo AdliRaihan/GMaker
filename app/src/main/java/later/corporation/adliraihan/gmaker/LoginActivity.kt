@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity(){
     override  fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        loginbtn_intent.setTextColor(resources.getColor(R.color.colorDawn))
+        loginbtn_intent.setTextColor(resources.getColor(R.color.colorAccent_3))
         var LURD = getSharedPreferenceforWorld(this)
         username_Input.setText(LURD)
         loginbtn_intent.setOnClickListener {
