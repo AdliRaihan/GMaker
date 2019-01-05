@@ -2,13 +2,12 @@
 
 <h2> Status program : sudah dapat digunakan namun ceritanya masih <i>Alpha</i></h2>
 
-  [ENG] i'm currently unemployed and if you have some interest about this project and me... :D you can download my CV <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">Here</a> . 
-  <br><br>
-  [IDN]
- Jika anda mencari seorang programmer android , saya sangat tertarik untuk mengisi posisi tersebut maupun Web App Developer , CV saya dapat didownload <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">disini</a>
-
 <h4>Update Source Code & Apk | 1/5/2019 : 
 <a href="https://github.com/Thibobs/GMaker/releases/tag/1.0.0.95">GMaker 1.0.0.95</a></h4>
+<a href="https://github.com/Thibobs/GMaker/tree/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase">Kotlin Using Firebase DB</a><br>
+<a href="https://github.com/Thibobs/GMaker/tree/master/app/src/main/java/later/corporation/adliraihan/gmaker">Kotlin Using MYSQLJSON</a><br>
+<a href="https://github.com/Thibobs/GMaker/tree/master/app/src/main/res/layout">XML Layout</a><br>
+<a href="https://github.com/Thibobs/GMaker/tree/master/app/src/main/res/drawable">XML Drawable</a><br>
 
 <i>Pembenahan Desain</i>
 <table>
