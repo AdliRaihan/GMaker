@@ -1,26 +1,71 @@
 # GMaker
 
-<h2> Status program : sudah dapat digunakan namun ceritanya masih <i>early-access</i></h2>
+<h2> Status program : sudah dapat digunakan namun ceritanya masih <i>Alpha</i></h2>
+
+  [ENG] i'm currently unemployed and if you have some interest about this project and me... :D you can download my CV <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">Here</a> . 
+  <br><br>
+  [IDN]
+ Jika anda mencari seorang programmer android , saya sangat tertarik untuk mengisi posisi tersebut maupun Web App Developer , CV saya dapat didownload <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">disini</a>
+
 
 <h6>
+Markdown masih berupa beberapa informasi tentang pengembangan aplikasi ini.<br>
 <b>highlight</b><br>
 <a href="https://github.com/Thibobs/GMaker/tree/master/app/src/main/java/later/corporation/adliraihan/gmaker">Mysql Source Code</a><br>
 <a href="https://github.com/Thibobs/GMaker/tree/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase">Firebase source Code</a><br>
 <a href="https://github.com/Thibobs/GMaker/tree/master/app/src/main/java/later/corporation/adliraihan/gmaker/adapter">adapter</a><br>
 <b>Algorithm Logic</b> made by me<br>
 <a href="https://github.com/Thibobs/GMaker/blob/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase/CreateDailyFunctionTimer.kt">Daily Timer Validation</a><br>
-<a href="https://github.com/Thibobs/GMaker/blob/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase/FirebaseCalendar.kt">Calendar picker & Time difference Algorithm</a><br>
-<a href="https://github.com/Thibobs/GMaker/blob/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase/FirebaseCalendar.kt">Background services for reminding ongoing schedule</a><br>
+<a href="https://github.com/Thibobs/GMaker/blob/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase/">Calendar picker & Time difference Algorithm</a><br>
+<a href="https://github.com/Thibobs/GMaker/blob/master/app/src/main/java/later/corporation/adliraihan/gmaker/firebase/">Background services for reminding ongoing schedule</a><br>
   <b>Features</b><br>
   - Almost all activity are userfriendly , ada beberapa fitur yg mempermudah user dalam menggunakan app ini<br>
   - Reminder<br>
   - Realtime database's<br>
   - etc<br>
 </h6><br><br>
+
+  <b>Latest Application Version : 1.0.0.52 <i> Masih tahap pengembangan</i></b><br>
+  Download <a href="https://github.com/Thibobs/GMaker/releases/tag/v.1.0.0.52">Pre release via Github</a><br><br>
+  <b>Daftar bug yang sudah diatasi</b> :<br>
+ 1. Muatan service membuat error seluruh aplikasi / Banyak Intent Stopped Working . <br>
+ 2. Aplikasi tidak dapat membuka agenda yang sudah expired / Crash .<br>
+3.  Memoryleaking <br><br>
+  <b>New Feature Added</b> :<Br>
+  Notifications "stacking" <br>
+  <img src="aplikasi_image/UpdateDadakan.jpg" width="256px"><br>
+  <b>Note:</b>
+  stacking notification sudah secara programmatically dan data diambil melalui database , source code versi terbaru belum bisa saya upload , ini hanya hotfix karena pada versi sebelumnya aplikasi sama sekali tidak bisa digunakan.<br><br>
+  <hr/>
+  <b>Old Version</b><br>
+  Version 1 : <a href="https://drive.google.com/file/d/1qJd5-rkZunbi-uSx3f0LNGeYgkPpgjd0/view">Download</a> <i>Versi source code Github</i><br>
+  Version 1.0.0.5 : <a href="https://drive.google.com/open?id=1UUeeY85cbfOyiGq5a7be5L2AY8ZO7V1I">Download</a><br>
+  <h5>Tested on Xiaomi Redmi A4</h5>
+  <br>
+  <i>Latest Github Source Code Update : 04/January/2019</i>
+  <ul>
+  <li>Notifications</li>
+  <li>Xiaomi Bugfix</li>
+  </ul>
+
 <table>
   <tr>
-    <td colspan="3">NEW UPDATE</td>
+  <td><img src="aplikasi_image/NotificationUpdate_1.jpg" width="128px"></td>
+  <td><img src="aplikasi_image/NotificationUpdate_2.jpg" width="128px"></td>
   </tr>
+  <tr>
+    <td colspan="2">Notification akan muncul dan memiliki sifat <i>Unremovable</i> jika ada agenda pada hari yang ditentukan. <i>detail activity tersebut masih dalam pengembangan design</i></td>
+  </tr>
+  </table>
+
+<i>seluruh image dapat dilihat  <a href="https://github.com/Thibobs/GMaker/tree/master/aplikasi_image">disini</a>
+
+Developingnya sampai saat ini baru 30%.
+email saya adliraihan002@gmail.com
+
+<h2>OLD Dec 30, 2018</h2>
+<h6>
+<table>
   <tr>
     <td>Final schedule Design</td>
     <td>Notification</td>
@@ -28,9 +73,9 @@
   </tr>
   
   <tr>
-  <td><img src="aplikasi_image/ServicesNotification.png" width="128px"></td>
-  <td><img src="aplikasi_image/notification_1.png" width="128px"></td>
-  <td><img src="aplikasi_image/notificationwithServices.png" width="128px"></td>
+  <td><img src="aplikasi_image/ServicesNotification.png" width="64px"></td>
+  <td><img src="aplikasi_image/notification_1.png" width="64px"></td>
+  <td><img src="aplikasi_image/notificationwithServices.png" width="64px"></td>
   </tr>
   
   <tr>
@@ -45,7 +90,7 @@
     <td><s>Next Update is in progress</s> <b>Sudah di implementasikan pada update yang baru</b></td>
   </tr>
   <tr>
-    <td><img src="aplikasi_image/1546094694914.jpg" width="512px"></td>
+    <td><img src="aplikasi_image/1546094694914.jpg" width="64px"></td>
   </tr>
   <tr>
     <td>
@@ -85,7 +130,4 @@ dari mulai pertama pembuatan sampai akhir serta beberapa design yang di rancang 
   </tr>
 </table>
 </center>
-<i>seluruh image dapat dilihat  <a href="https://github.com/Thibobs/GMaker/tree/master/aplikasi_image">disini</a>
-
-Developingnya sampai saat ini baru 20% dan pengerjaan baru 2 minggu saja karena terpotong dengan jadwal kuliah serta asisten dosen.
-email saya adliraihan002@gmail.com
+</h6>
