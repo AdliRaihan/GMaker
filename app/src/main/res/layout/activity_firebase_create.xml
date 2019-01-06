@@ -73,6 +73,7 @@
                     android:text="Title" />
 
                 <EditText
+                    android:maxLength="20"
                     android:fontFamily="@font/segoeui"
                     android:background="@drawable/edittext_primary_drwbl"
                     android:id="@+id/titleDataAgenda"

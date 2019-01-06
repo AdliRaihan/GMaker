@@ -15,12 +15,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_landing_recycler_parent_update.*
-import kotlinx.android.synthetic.main.activity_landing_recycler_parent_update.view.*
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.child_activity_landing_menu.view.*
 import kotlinx.android.synthetic.main.child_activity_retryconnection.view.*
-import later.corporation.adliraihan.gmaker.adapter.MyRecyclerAdapter
 import later.corporation.adliraihan.gmaker.firebase.CreateDailyActivity
 import okhttp3.*
 import org.json.JSONArray
@@ -36,6 +32,7 @@ class LandingActivity : AppCompatActivity(){
     open var DrawerisOpen:Boolean = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        /*
         setContentView(R.layout.activity_landing_recycler_parent_update)
         initLanding()
 
@@ -162,9 +159,7 @@ class LandingActivity : AppCompatActivity(){
                                     adapter = viewAdapter
                                 }
                             }else{
-                                bottomRecycler.visibility = View.GONE
-                                landing_isnull.visibility = View.VISIBLE
-                                bottomRecycler.removeAllViews()
+
                             }
                         }
                         catch (cepon:Exception){
@@ -174,6 +169,6 @@ class LandingActivity : AppCompatActivity(){
                 }
             }
         })
+*/
     }
-
 }

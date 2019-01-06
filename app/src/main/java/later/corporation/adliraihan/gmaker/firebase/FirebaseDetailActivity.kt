@@ -1,6 +1,7 @@
 package later.corporation.adliraihan.gmaker.firebase
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.content.ContextCompat
@@ -16,28 +17,31 @@ class FirebaseDetailActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
         getBundles()
-
-
         backdetails.setOnClickListener{finish()}
-        editholdbtn.setOnLongClickListener{
-
+       deleteagendaparent.setOnLongClickListener{
             var phoneDisplay = windowManager.defaultDisplay
             var dl = Dialog(this)
             dl.setContentView(R.layout.activity_details_manage)
             dl.thisDialogAgendaDetails.layoutParams.width = phoneDisplay.width
             dl.show()
-
             return@setOnLongClickListener  true
         }
-
+        deleteagendaparent.setOnClickListener{
+            deleteAgenda()
+        }
     }
-
+    fun deleteAgenda(){
+        var setUser  = FirebaseLoginActivity().FgetSharedPreferenceforWorld(this)
+        var removeDb = Database.variables.dbConnection.getReference( "user_$setUser" + "/account_agenda/" +
+                "${intent.extras.getString("varfirst")}")
+        removeDb
+                .removeValue()
+        finish()
+        startActivity(Intent(this,FirebaseLandingActivity::class.java))
+    }
     fun getBundles(){
-
         var expiredC = ContextCompat.getColor(this,R.color.BColorDanger)
         var goingC = ContextCompat.getColor(this,R.color.BColorSuccess)
-
-
         var budlesGet = intent.extras
         var one = intent.getStringExtra("varfirst")
         var two = budlesGet.getString("varsecond","")
@@ -49,11 +53,9 @@ class FirebaseDetailActivity : AppCompatActivity(){
                 left *= -1
                 var leftstr = left.toString()
                 leftstr.replace("-","")
-                dleftdetails.setBackgroundColor(expiredC)
                 dleftdetails.setText("This agenda is expired " +  leftstr + " days ago")
             }else if(left.toInt() == 0) {
                 dleftdetails.setText("This agenda is on going !")
-                dleftdetails.setBackgroundColor(goingC)
             }else{
                 dleftdetails.setText(left.toString() + "Days Left")
             }
@@ -62,9 +64,7 @@ class FirebaseDetailActivity : AppCompatActivity(){
             println(E)
         }
         titledetails.setText(one)
-        datedetails.setText(three)
+        datedetails.setText("Date $three")
         descdetails.setText(two)
-        println("VAR FIRST : " + one)
-
     }
 }

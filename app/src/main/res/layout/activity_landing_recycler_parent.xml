@@ -1,132 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     android:id="@+id/GodFatherLandingUserLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_gravity="center">
-    <ScrollView
-        android:scrollX="0dp"
-        android:scrollY="0dp"
-        android:id="@+id/ScrollBarLandingUserLayout"
+    android:orientation="vertical">
+    <LinearLayout
+        android:background="@color/colorAccent_2"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/landingHeader_top">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:padding="15dp">
+                <TextView
+                    android:id="@+id/username_logged"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="adliraihan001@gmail.com" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/menu_drawer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:padding="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_menu_white_24dp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/BColorPrimary"/>
+    <TextView
+        android:textAlignment="center"
+        android:id="@+id/headerStatistics"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="20 , December 2017" />
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="225dp"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryDark_Opacity2"/>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical" >
-            <RelativeLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="500dp"
-                    android:background="@drawable/bg"/>
+                android:layout_height="wrap_content">
                 <LinearLayout
-                    android:focusedByDefault="true"
-                    android:orientation="vertical"
-                    android:background="@color/colorPrimaryDark_Opacity1"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:id="@+id/landingHeader_top">
-                    <LinearLayout
-                        android:gravity="center|top"
-                        android:paddingHorizontal="20dp"
-                        android:paddingVertical="10dp"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/scriptuitbl"
-                            android:text="@string/login_welcome_label"
-                            android:textSize="28dp"
-                            android:textColor="@android:color/white"
-                            />
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Selamat pagi , Adli Raihan !"
-                            android:gravity="right"
-                            android:textColor="@color/colorAccent"/>
-                    </LinearLayout>
-                    <ImageView
-                        android:layout_marginHorizontal= "20dp"
-                        android:padding="20dp"
-                        android:layout_width="75dp"
-                        android:layout_height="1dp"
-                        android:background="@color/colorAccent"/>
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/segoeui"
-                            android:text="@string/landing_activity_agenda_label_1"
-                            android:textSize="18dp"
-                            android:textColor="@color/colorDawnBlue"
-                            android:paddingHorizontal="20dp"/>
-                        <TextView
-                            android:id="@+id/agenda_current"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/segoeui"
-                            android:text="Masuk Kuliah Jam 7.00 AM"
-                            android:textSize="18dp"
-                            android:textColor="@color/colorDawnBlue"
-                            android:paddingHorizontal="20dp"/>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:padding="20dp"
-                        android:gravity="left|center"
-                        android:layout_gravity="bottom"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/landing_activity_agenda_label_2"
-                            android:fontFamily="@font/segoeui"
-                            android:textColor="@android:color/white"
-                            android:textSize="18dp"/>
-                    </LinearLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/landingBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/landingHeader_top"
-                    android:layout_alignParentStart="true"
-                    android:background="@android:color/white"
-                    android:orientation="vertical">
-                    <RelativeLayout
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Agenda" />
+
+                        <TextView
+                            android:id="@+id/totalagendacount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="24dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Selesai" />
+
+                        <TextView
+                            android:id="@+id/selesaiagendacount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="24dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Gagal" />
+
+                        <TextView
+                            android:id="@+id/gagalagendacount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="24dp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorPrimaryDark_Opacity2"/>
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:textAlignment="center"
+        android:padding="5dp"
+        android:id="@+id/status_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lorem_ipsum_sm"
+        android:textColor="@color/colorPrimaryDark_Opacity1" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryDark_Opacity2"/>
+    <!-- EA-->
+        <LinearLayout
+            android:background="@color/colorPrimaryDark_Opacity2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <LinearLayout
+                        android:id="@+id/landingBody"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:minHeight="800dp">
-                        <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:background="@android:color/white"
+                        android:orientation="vertical">
+                    <RelativeLayout
+                        android:background="@color/colorPrimaryDark_Opacity2"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:gravity="center|left">
-                            <android.support.v7.widget.RecyclerView
-                                android:id="@+id/RecyclerMe"
+                            android:layout_height="match_parent">
+                        <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center|left">
+                            <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/bottomRecycler"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
                             </android.support.v7.widget.RecyclerView>
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:id="@+id/landing_isnull"
+                                android:padding="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="top|center">
+                                <ImageView
+                                    android:src="@drawable/ic_favorite_cyan_24dp"
+                                    android:layout_width="28dp"
+                                    android:layout_height="28dp" />
+                                <TextView
+                                    android:padding="10dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/colorPrimaryDark_Opacity1"
+                                    android:text="@string/landing_activity_ifnull_header"/>
+                                <TextView
+                                    android:textAlignment="center"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/colorPrimaryDark_Opacity1"
+                                    android:text="@string/landing_activity_ifnull"/>
+                                <TextView
+                                    android:id="@+id/forceCreateAgenda"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/landing_activity_ifnull_create"
+                                    android:textColor="@android:color/holo_blue_dark"/>
+                            </LinearLayout>
                         </LinearLayout>
                     </RelativeLayout>
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/notmessage"
+        android:layout_width="match_parent"
+        android:background="@color/colorAccent_2"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:padding="10dp"
+            android:text="Aplikasi ini masih dalam tahap pengembangan developer . Mohon berkenan melaporkan bila adanya bug maupun error . ke email adliraihan001@gmail.com" />
+
+
+        <ImageView
+            android:id="@+id/closenotificationmessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/BColorDanger"
+            android:src="@drawable/ic_close_white_24dp" />
+    </RelativeLayout>
+</RelativeLayout>

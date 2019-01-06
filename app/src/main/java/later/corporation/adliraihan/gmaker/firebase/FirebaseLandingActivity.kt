@@ -25,8 +25,9 @@ import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_landing_recycler_parent_update.*
-import kotlinx.android.synthetic.main.activity_landing_recycler_parent_update.view.*
+import kotlinx.android.synthetic.main.activity_landing_recycler_parent.*
+import kotlinx.android.synthetic.main.activity_landing_recycler_parent.view.*
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.child_activity_landing_menu.view.*
 import kotlinx.android.synthetic.main.child_activity_retryconnection.*
 import later.corporation.adliraihan.gmaker.LoginActivity
@@ -46,21 +47,19 @@ class FirebaseLandingActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_landing_recycler_parent_update)
+        setContentView(R.layout.activity_landing_recycler_parent)
         initLanding()
-        scroller_landing.smoothScrollTo(0,0)
-        val menuDrawer = LayoutInflater.from(applicationContext).inflate(R.layout.child_activity_landing_menu,landingHeader,false)
+        val menuDrawer = LayoutInflater.from(applicationContext).inflate(R.layout.child_activity_landing_menu,GodFatherLandingUserLayout,false)
         menu_drawer.setOnClickListener{
-            doOpen(menuDrawer,landingHeader)
+            doOpen(menuDrawer,GodFatherLandingUserLayout)
             menu_drawer.isEnabled = false
         }
-        quick_create_agenda.setOnClickListener{
+        forceCreateAgenda.setOnClickListener{
+            finish()
             var InterGlobal = Intent(applicationContext, FirebaseCreateActivity::class.java)
             startActivity(InterGlobal)
         }
         initializeAgenda()
-        OngoingRightnow()
-        tryNotification()
         setBroadcast()
     }
     //BROADCAST//
@@ -78,8 +77,12 @@ class FirebaseLandingActivity : AppCompatActivity(){
     }
     //BROADCAST END
     fun initializeAgenda(){
+        if (getMessageFT(this).equals("0")){
+            showMessage()
+        }
+
         var Pref = Database.variables.myRead.child("user_" + username_logged.text.toString() + Database.url.user_agenda )
-        val functionImplements = Pref.orderByChild("title")
+        val functionImplements = Pref.orderByChild("date")
         functionImplements.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
 
@@ -89,10 +92,10 @@ class FirebaseLandingActivity : AppCompatActivity(){
                     val children = p0.children
                 totalagendacount.setText(p0.children.count().toString())
                 if(p0.children.count() == 0 ){
-                    bottomRecycler.visibility = View.GONE
+//                    bottomRecycler.visibility = View.GONE
                     landing_isnull.visibility = View.VISIBLE
                 }else{
-                    bottomRecycler.visibility = View.VISIBLE
+//                    bottomRecycler.visibility = View.VISIBLE
                     landing_isnull.visibility = View.GONE
 
                     //VARIABLES//
@@ -122,8 +125,7 @@ class FirebaseLandingActivity : AppCompatActivity(){
                         }
                     }
                     try{
-                        viewAdapter = MyRecyclerAdapter(agenda_judul,agenda_type,agenda_time,agenda_date,agenda_desk,this@FirebaseLandingActivity)
-                        viewManager = LinearLayoutManager(this@FirebaseLandingActivity,LinearLayout.HORIZONTAL,false)
+                        viewManager = LinearLayoutManager(this@FirebaseLandingActivity)
                         viewAdapter = MyRecyclerAdapter(agenda_judul,agenda_type,agenda_time,agenda_date,agenda_desk,this@FirebaseLandingActivity)
                         recyclerView = findViewById<RecyclerView>(R.id.bottomRecycler).apply {
                             setHasFixedSize(false)
@@ -158,28 +160,28 @@ class FirebaseLandingActivity : AppCompatActivity(){
                 &&
                 (timeinfo.equals("AM"))
         ){
-            status_info.setText("Selamat pagi !")
+            status_info.setText("Selamat pagi")
         }else if((hours >= 10 && hours < 12)
                 &&
                 (timeinfo.equals("AM"))
         ){
-            status_info.setText("Selamat Siang !")
-        }else if((hours >= 12 && hours < 5)
+            status_info.setText("Selamat Siang")
+        }else if((hours >= 1 && hours < 5)
                 &&
                 (timeinfo.equals("PM"))
         ){
-            status_info.setText("Selamat sore !")
-        }else if((hours >= 5 && hours < 12)
+            status_info.setText("Selamat sore")
+        }else if((hours >= 5 && hours < 1)
                 &&
                 (timeinfo.equals("PM"))
         ){
-            status_info.setText("Selamat Malam !")
+            status_info.setText("Selamat Malam")
         }else{
-            status_info.setText("Dini hari !")
+            status_info.setText("Dini hari")
         }
 
         var setUser  = FirebaseLoginActivity().FgetSharedPreferenceforWorld(this)
-        username_logged.setText(setUser)
+        username_logged.setText("$setUser")
     }
 
     //=========== MENU DRAWER ==============
@@ -190,7 +192,7 @@ class FirebaseLandingActivity : AppCompatActivity(){
         runOnUiThread {
             fun nothing(){
                 parent.removeView(draweropn)
-                parent.menu_drawer.isEnabled = true;
+                parent.menu_drawer.isEnabled = true
             }
             if(draweropn.isEnabled)
                 parent.addView(draweropn)
@@ -228,53 +230,24 @@ class FirebaseLandingActivity : AppCompatActivity(){
         }
     }
 
-    fun tryNotification(){
-    }
-    fun OngoingRightnow(){
-        var Pref = Database.variables.myRead.child("user_" + username_logged.text.toString() + Database.url.user_agenda )
-        val functionImplements = Pref.orderByChild("title")
-        functionImplements.addValueEventListener(object : ValueEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-
+    fun showMessage(){
+        Log.i("TAG","ShowMessage()")
+        notmessage.apply {
+                visibility = View.VISIBLE
+            closenotificationmessage.setOnClickListener {
+                setMessageFT()
+                visibility = View.GONE
             }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                val children = p0.children
-                totalagendacount.setText(p0.children.count().toString())
-                if(p0.children.count() == 0 ){
-                    bottomRecycler.visibility = View.GONE
-                    landing_isnull.visibility = View.VISIBLE
-                }else{
-                    bottomRecycler.visibility = View.VISIBLE
-                    landing_isnull.visibility = View.GONE
-
-                    //VARIABLES//
-                    var agenda_judul = arrayListOf<String>()
-                    var agenda_desk = arrayListOf<String>()
-                    var agenda_type = arrayListOf<String>()
-                    var agenda_time = arrayListOf<String>()
-                    var agenda_date = arrayListOf<String>()
-
-                    //END VAR//
-                    children.forEach {
-                        agenda_judul.add(it.child("title").value.toString())
-                        agenda_desk.add(it.child("description").value.toString())
-                        agenda_time.add(it.child("time").value.toString())
-                        agenda_date.add(it.child("date").value.toString())
-                        agenda_type.add(it.child("type").value.toString())
-                    }
-
-                    viewManager = LinearLayoutManager(this@FirebaseLandingActivity)
-                    viewAdapter = MyRecyclerAdapterOngoing(agenda_judul,agenda_type,agenda_time,agenda_date,agenda_desk,this@FirebaseLandingActivity)
-                    recyclerView = findViewById<RecyclerView>(R.id.ongoingRecycler).apply {
-                        setHasFixedSize(false)
-                        layoutManager = viewManager
-                        adapter = viewAdapter
-                    }
-                }
-            }
-
-        })
+        }
     }
-
+    fun getMessageFT(context:Context) : String{
+        var getPref = PreferenceManager.getDefaultSharedPreferences(context)
+        return getPref.getString("notemessage","0")
+    }
+    fun setMessageFT(){
+        val getSharedPref = PreferenceManager.getDefaultSharedPreferences(this)
+        val editor = getSharedPref.edit()
+        editor.putString("notemessage","1")
+        editor.commit()
+    }
 }

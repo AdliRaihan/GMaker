@@ -37,9 +37,10 @@ class MyRecyclerAdapter(private val agendaJudul:ArrayList<String>,
     var ongoing_data = 0
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var dude = itemView.findViewById<TextView>(R.id.text_Recycler_1)
-       // var dude2 = itemView.findViewById<TextView>(R.id.text_Recycler_2)
-       // var dude4 = itemView.findViewById<TextView>(R.id.text_Recycler_3)
-
+       var dude2 = itemView.findViewById<TextView>(R.id.descpeek)
+       var dude4 = itemView.findViewById<ImageView>(R.id.categorycolor)
+        var dude5 =  itemView.findViewById<TextView>(R.id.fulldatemonth)
+        var dude6 =  itemView.findViewById<TextView>(R.id.integerDate)
         var dayLeft = itemView.findViewById<TextView>(R.id.days_left)
         var GodFather = itemView.findViewById<LinearLayout>(R.id.taskListButton)
     }
@@ -62,22 +63,29 @@ class MyRecyclerAdapter(private val agendaJudul:ArrayList<String>,
         var expiredC = ContextCompat.getColor(contentData,R.color.BColorDanger)
         var goingC = ContextCompat.getColor(contentData,R.color.BColorSuccess)
         var plString = agendaDate[p1]
-        println("AGENDA DATE:" + agendaDate[p1].toString())
         var let = FirebaseCalendar().CompareTwo("",plString)
-        println("SISA : " + let)
-
         var p = Calendar.getInstance().time
         var dlm = p.month
         var dl = p.date;var TimeLeft:Int = 0
-        var DateInteger = (plString[0].toString() + plString[1].toString()).toInt()
+        var DateInteger = plString[0].toString() + plString[1].toString()
         var MonthInteger = plString[3].toString() + plString[4].toString() + plString[5].toString()
+        val fulldate = FirebaseCalendar().stringIntstr(MonthInteger)
 
+        p0.dude6.setText(DateInteger)
+        p0.dude5.setText(fulldate)
+        p0.dude2.setText(agendaDesk[p1])
         var dleft = let.toString().toInt()
         if(dleft == 0) {
-            p0.dayLeft.setTextColor(goingC)
+            goingC.also {
+                p0.dude4.setBackgroundColor(it)
+                p0.dayLeft.setTextColor(it)
+            }
             p0.dayLeft.setText("On Going")
         }else if(dleft < 0) {
-            p0.dayLeft.setTextColor(expiredC)
+            expiredC.also {
+                p0.dude4.setBackgroundColor(it)
+                p0.dayLeft.setTextColor(it)
+            }
             p0.dayLeft.setText("Expired !")
         }else
             p0.dayLeft.setText(let.toString() + " Days Left !")

@@ -94,7 +94,7 @@ class FirebaseLoginActivity : AppCompatActivity(){
                         loginbtn_intent.apply {
                             setText(resources.getString(R.string.login_label))
                         }
-                        hide()
+                        dismiss()
                     }
             }
     }
