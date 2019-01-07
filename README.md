@@ -1,7 +1,33 @@
 # GMaker
 
 <h2> Status program : sudah dapat digunakan namun ceritanya masih <i>Alpha</i></h2>
-
+<hr/>
+<i>Tantangan : Buat system pengecekan Koneksi tanpa mendeklarasikan variable</i>
+<code>
+  
+    fun CheckConnectivity(Cntx:Context){
+        val TAGS_TEST = "TEST RUN"
+        (Cntx.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
+                .activeNetworkInfo.apply {
+            Toast.makeText(Cntx,StringBuilder().also {
+                if((this != null)&&isConnected){
+                    toString().let {
+                        log -> Log.i(TAGS_TEST,log)
+                        it.append("Connectivity")
+                    }
+                }else if(this == null){
+                    toString().let {
+                        log -> Log.i(TAGS_TEST,log)
+                        it.append("No Connectivity")
+                    }
+                }
+            }, Toast.LENGTH_SHORT).show()
+        }
+  
+  </code>
+  
+  <i>Note</i> : Kode tersebut belum saya upload karena jujur codingan saya kurang rapih , kemungkinan besar orang awam malas buat baca kodingannya .
+<hr/>
 <h4>Update Source Code & Apk | 1/5/2019 : 
 <a href="https://github.com/Thibobs/GMaker/releases/tag/1.0.1.00">GMaker 1.0.1.00</a></h4>
 <i>Older Version</i><br>
