@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="dialogTimePicker" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">@color/BColorPrimary</item>
+        <item name="android:titleTextColor">@color/BColorPrimary</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+</resources>

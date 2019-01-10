@@ -1,49 +1,40 @@
 package later.corporation.adliraihan.gmaker.firebase
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
 import android.content.IntentFilter
 import android.net.ConnectivityManager
-import android.os.Build
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.os.Handler
 import android.preference.PreferenceManager
-import android.support.v4.app.NotificationCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.HorizontalScrollView
-import android.widget.LinearLayout
+import android.view.animation.AnimationUtils
 import android.widget.RelativeLayout
 import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_landing_recycler_child_holder_update.*
 import kotlinx.android.synthetic.main.activity_landing_recycler_parent.*
 import kotlinx.android.synthetic.main.activity_landing_recycler_parent.view.*
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.child_activity_landing_menu.view.*
-import kotlinx.android.synthetic.main.child_activity_retryconnection.*
-import later.corporation.adliraihan.gmaker.LoginActivity
 import later.corporation.adliraihan.gmaker.MainActivity
 import later.corporation.adliraihan.gmaker.R
 import later.corporation.adliraihan.gmaker.adapter.MyRecyclerAdapter
-import later.corporation.adliraihan.gmaker.adapter.MyRecyclerAdapterOngoing
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.logging.SimpleFormatter
 
 class FirebaseLandingActivity : AppCompatActivity(){
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
+    open lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +43,7 @@ class FirebaseLandingActivity : AppCompatActivity(){
         val menuDrawer = LayoutInflater.from(applicationContext).inflate(R.layout.child_activity_landing_menu,GodFatherLandingUserLayout,false)
         menu_drawer.setOnClickListener{
             doOpen(menuDrawer,GodFatherLandingUserLayout)
+
             menu_drawer.isEnabled = false
         }
         forceCreateAgenda.setOnClickListener{
@@ -59,6 +51,13 @@ class FirebaseLandingActivity : AppCompatActivity(){
             var InterGlobal = Intent(applicationContext, FirebaseCreateActivity::class.java)
             startActivity(InterGlobal)
         }
+
+
+        //Anim
+        var slideUp_ = AnimationUtils.loadAnimation(this@FirebaseLandingActivity,R.anim.abc_slide_in_top)
+        landingBody.startAnimation(slideUp_)
+        //anim
+
         initializeAgenda()
         setBroadcast()
     }
@@ -109,11 +108,21 @@ class FirebaseLandingActivity : AppCompatActivity(){
                     children.forEach {
                         var CY = Calendar.getInstance().time
                         var CYs = SimpleDateFormat("dd/MMM").format(CY)
-                        agenda_judul.add(it.child("title").value.toString())
-                        agenda_desk.add(it.child("description").value.toString())
-                        agenda_time.add(it.child("time").value.toString())
-                        agenda_date.add(it.child("date").value.toString())
-                        agenda_type.add(it.child("type").value.toString())
+                        Handler().postDelayed({
+                            agenda_judul.add(it.child("title").value.toString())
+                            agenda_desk.add(it.child("description").value.toString())
+                            agenda_time.add(it.child("time").value.toString())
+                            agenda_date.add(it.child("date").value.toString())
+                            agenda_type.add(it.child("type").value.toString())
+                            viewManager = LinearLayoutManager(this@FirebaseLandingActivity)
+                            viewAdapter = MyRecyclerAdapter(agenda_judul,agenda_type,agenda_date,agenda_desk,this@FirebaseLandingActivity)
+                            recyclerView = bottomRecycler.apply {
+                                setHasFixedSize(false)
+                                layoutManager = viewManager
+                                adapter = viewAdapter
+                            }
+                        },2500)
+
                         try{
                             if(FirebaseCalendar().getDateMonthFromArray(it.child("date").value.toString()).equals(CYs)) {
                                 println("CYS : $CYs : Full Time ${FirebaseCalendar().getDateMonthFromArray(it.child("date").value.toString())}")
@@ -125,13 +134,6 @@ class FirebaseLandingActivity : AppCompatActivity(){
                         }
                     }
                     try{
-                        viewManager = LinearLayoutManager(this@FirebaseLandingActivity)
-                        viewAdapter = MyRecyclerAdapter(agenda_judul,agenda_type,agenda_time,agenda_date,agenda_desk,this@FirebaseLandingActivity)
-                        recyclerView = findViewById<RecyclerView>(R.id.bottomRecycler).apply {
-                            setHasFixedSize(false)
-                            layoutManager = viewManager
-                            adapter = viewAdapter
-                        }
                     }
                     catch(E:Exception){
                         Log.i("Error Message",E.toString())
@@ -152,8 +154,6 @@ class FirebaseLandingActivity : AppCompatActivity(){
         var timeinfo = time.format(getT)
 
         headerStatistics.setText("Statistics " + yearshs.format(getT).toString())
-        var strFormat = df.format(getT)
-
         var tf = SimpleDateFormat("hh:mm a")
         var gtf = tf.format(getT)
         if((hours > 6 && hours < 10)
@@ -191,41 +191,54 @@ class FirebaseLandingActivity : AppCompatActivity(){
     ){
         runOnUiThread {
             fun nothing(){
-                parent.removeView(draweropn)
+                draweropn.parentMenuDrawer.startAnimation(AnimationUtils.loadAnimation(this,R.anim.slide_end))
+                Handler().postDelayed({
+                    parent.removeView(draweropn)
+                },250)
                 parent.menu_drawer.isEnabled = true
             }
-            if(draweropn.isEnabled)
+            if(draweropn.isEnabled){
                 parent.addView(draweropn)
+                draweropn.parentMenuDrawer.startAnimation(AnimationUtils.loadAnimation(this,R.anim.slide_up))
+            }
 
-            draweropn.close_drawer_btn.setOnClickListener{nothing()}
-            draweropn.create_gendabtn.setOnClickListener{nothing();doChildOpen("create")}
-            draweropn.create_gendabtndaily.setOnClickListener{nothing();doChildOpen("createdaily")}
-            draweropn.account_gendabtn.setOnClickListener{nothing();doChildOpen("account")}
-            draweropn.logout_gendabtn.setOnClickListener{nothing();doChildOpen("logout")}
+            draweropn.apply {
+                close_drawer_btn.setOnClickListener {nothing()}
+                Authorbtn.setOnClickListener {  nothing();doChildOpen("info")}
+                create_gendabtn.setOnClickListener{
+                    nothing();doChildOpen("create")
+                    it.isEnabled = false
+                    Handler().postDelayed({
+                        it.isEnabled = true
+                    },2000)
+                }
+                create_gendabtndaily.setOnClickListener{nothing();doChildOpen("createdaily")}
+                account_gendabtn.setOnClickListener{nothing();doChildOpen("account")}
+                logout_gendabtn.setOnClickListener{nothing();doChildOpen("logout")}
+            }
         }
     }
     fun doChildOpen(arts:Any){
         when(arts){
+            "info"->{
+                Toast.makeText(this,"Dibuat oleh Adli Raihan \n github.com/Thibobs",Toast.LENGTH_SHORT).show()
+            }
             "create"->{
-                finish()
-                var InterGlobal = Intent(applicationContext, FirebaseCreateActivity::class.java)
-                startActivity(InterGlobal)
+                //finish()
+                startActivity( Intent(applicationContext, FirebaseCreateActivity::class.java).addFlags(FLAG_ACTIVITY_CLEAR_TOP))
             }
             "createdaily"->{
-
-                var InterGlobal = Intent(applicationContext, CreateDailyActivity::class.java)
-                startActivity(InterGlobal)
+                //finish()
+                startActivity(Intent(applicationContext, CreateDailyActivity::class.java).addFlags(FLAG_ACTIVITY_CLEAR_TOP))
             }
             "account"->{
-
             }
             "logout"->{
                 val getSharedPref = PreferenceManager.getDefaultSharedPreferences(this)
                 val editor = getSharedPref.edit()
                 editor.putString("username",null)
                 editor.commit()
-                var InterGlobal = Intent(applicationContext, MainActivity::class.java)
-                startActivity(InterGlobal)
+                startActivity(Intent(applicationContext, MainActivity::class.java).addFlags(FLAG_ACTIVITY_CLEAR_TOP))
             }
         }
     }

@@ -23,19 +23,29 @@ class FirebaseReceiver : BroadcastReceiver() {
         CheckConnectivity(context)
     }
 
-    fun CheckConnectivity(cntx:Context){
-        (cntx.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
+    fun CheckConnectivity(Cntx:Context){
+        val TAGS = "Run"
+        (Cntx.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
                 .activeNetworkInfo.apply {
-            if(this != null && isConnected)
-                println(isConnected)
-            else if(this == null)
-                Toast.makeText(cntx," Cek kembali koneksi internet anda.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(Cntx,StringBuilder().also {
+                if((this != null)&&isConnected){
+                    toString().let {
+                        log -> Log.i(TAGS,log)
+                        it.append("Connectivity")
+                    }
+                }else if(this == null){
+                    toString().let {
+                        log -> Log.i(TAGS,log)
+                        it.append("No Connectivity")
+                    }
+                }
+            }, Toast.LENGTH_SHORT).show()
         }
 
 
         run{
             @TargetApi(Build.VERSION_CODES.LOLLIPOP){
-                (cntx.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).addDefaultNetworkActiveListener{
+                (Cntx.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).addDefaultNetworkActiveListener{
                     //SIMPAN BUAT NANTI
                 }
             }

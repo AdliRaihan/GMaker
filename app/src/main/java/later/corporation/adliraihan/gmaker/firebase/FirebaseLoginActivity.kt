@@ -71,10 +71,6 @@ class FirebaseLoginActivity : AppCompatActivity(){
             }
             override fun onDataChange(p0: DataSnapshot) {
                 val userinput = p0.child("password").value.toString()
-                println("Username Input :" + username)
-                println("Username : " + p0.child("username").value.toString())
-                println("Password : " + userinput)
-                println("User Input : " + password)
                 if(userinput.equals(password)){
                     FsharedPreferenceForWorld()
                 }else{
@@ -100,7 +96,6 @@ class FirebaseLoginActivity : AppCompatActivity(){
     }
     fun validation(){
         var prank = resources.getColor(R.color.colorAccent_2)
-        var colorDefault_1  = prank
         if(!username_Input.text.isEmpty() &&
             !password_Input.text.isEmpty())
             loginbtn_intent.setTextColor(resources.getColor(R.color.colorAccent_2))
@@ -123,6 +118,7 @@ class FirebaseLoginActivity : AppCompatActivity(){
         val getSharedPref = PreferenceManager.getDefaultSharedPreferences(this)
         val editor = getSharedPref.edit()
         editor.putString("username",username_Input.text.toString())
+
         if(editor.commit()){
             this.finish()
             var Intent = Intent(this,FirebaseLandingActivity::class.java)

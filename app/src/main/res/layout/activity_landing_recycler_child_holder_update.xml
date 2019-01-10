@@ -1,109 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:id="@+id/taskListButton"
+    android:elevation="15dp"
     android:orientation="vertical"
+    android:id="@+id/taskListButton"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/transparent"
     android:layout_width="match_parent"
-    android:background="@color/colorAccent_2"
     android:layout_height="wrap_content">
-
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <LinearLayout
-            android:gravity="center"
-            android:padding="5dp"
-            android:orientation="vertical"
-            android:layout_width="100dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/integerDate"
-                android:textSize="24dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10"/>
-            <TextView
-                android:id="@+id/fulldatemonth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="November"/>
-            <TextView
-                android:enabled="false"
-                android:paddingHorizontal="10dp"
-                android:id="@+id/days_left"
-                android:maxLength="20"
-                android:fontFamily="@font/segoeuil"
-                android:background="@android:color/transparent"
-                android:textSize="8dp"
-                android:textColor="@color/colorPrimaryDark_Opacity1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="245 Days Left"/>
-        </LinearLayout>
-        <ImageView
-            android:id="@+id/categorycolor"
-            android:layout_marginHorizontal="5dp"
-            android:background="@color/BColorPrimary"
-            android:layout_width="3dp"
-            android:layout_height="match_parent" />
-        <LinearLayout
-            android:padding="15dp"
-            android:gravity="center|left"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <ImageView
+        android:layout_marginRight="25dp"
+        android:id="@+id/categorycolor"
+        android:background="@color/BColorPrimary"
+        android:layout_width="6dp"
+        android:layout_height="match_parent" />
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textColor="@color/colorPrimaryDark"
-                        android:id="@+id/text_Recycler_1"
-                        android:textSize="14dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="@string/lorem_ipsum_sm"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <EditText
-                        android:enabled="false"
-                        android:maxLength="17"
-                        android:background="@android:color/transparent"
-                        android:textSize="14dp"
-                        android:textColor="@color/colorPrimaryDark_Opacity1"
-                        android:id="@+id/descpeek"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="@string/lorem_ipsum_sm"/>
-                    <TextView
-                        android:maxLength="3"
-                        android:background="@android:color/transparent"
-                        android:textSize="14dp"
-                        android:textColor="@color/colorPrimaryDark_Opacity1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="..."/>
-
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:gravity="right"
+                android:background="@color/colorAccent_2"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageView
-                    android:src="@drawable/ic_chevron_right_cyan_24dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/integerDate"
+                        android:textSize="24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"/>
+                    <TextView
+                        android:id="@+id/fulldatemonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="November"/>
+                    <TextView
+                        android:enabled="false"
+                        android:paddingHorizontal="10dp"
+                        android:id="@+id/days_left"
+                        android:maxLength="20"
+                        android:fontFamily="@font/segoeuil"
+                        android:background="@android:color/transparent"
+                        android:textSize="8dp"
+                        android:textColor="@color/colorPrimaryDark_Opacity1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="245 Days Left"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:padding="5dp"
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textColor="@color/colorPrimaryDark"
+                                android:id="@+id/text_Recycler_1"
+                                android:textSize="14dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/lorem_ipsum_sm"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:enabled="false"
+                                android:maxLength="17"
+                                android:background="@android:color/transparent"
+                                android:textSize="14dp"
+                                android:textColor="@color/colorPrimaryDark_Opacity1"
+                                android:id="@+id/descpeek"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/lorem_ipsum_sm"/>
+                            <TextView
+                                android:maxLength="3"
+                                android:background="@android:color/transparent"
+                                android:textSize="14dp"
+                                android:textColor="@color/colorPrimaryDark_Opacity1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="..."/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:gravity="right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/see_more_btn"
+                            android:src="@drawable/ic_chevron_right_cyan_24dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+    </LinearLayout>
     </LinearLayout>
 </LinearLayout>

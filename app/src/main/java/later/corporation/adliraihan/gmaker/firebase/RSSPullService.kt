@@ -75,12 +75,12 @@ class RSSPullService :  IntentService(RSSPullService::class.simpleName){
                     .setLargeIcon(largeBitmap)
             var notificationLine = NotificationCompat.InboxStyle()
             do {
-
-                var sb:SpannableString = SpannableString(dataVar.titleAvailable[0]).apply {
+                var sb:SpannableString = SpannableString(dataVar.titleAvailable[Iteration]).apply {
                     setSpan(StyleSpan(android.graphics.Typeface.BOLD), 0, 3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                 }
                 notificationLine.addLine("${sb} is active agenda.")
-                Iteration++ }while(Iteration < dataVar.titleAvailable.size)
+                Iteration++
+            }while(Iteration < dataVar.titleAvailable.size)
             notificationSchedule.setStyle(notificationLine
                     .setBigContentTitle("${dataVar.titleAvailable.size} Agenda needs to be attend")
                     .setSummaryText("${FirebaseLoginActivity().FgetSharedPreferenceforWorld(applicationContext)}"))

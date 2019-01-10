@@ -8,6 +8,7 @@
     android:layout_gravity="right"
     android:layout_height="match_parent">
     <LinearLayout
+        android:id="@+id/parentMenuDrawer"
         android:orientation="vertical"
         android:layout_gravity="right"
         android:layout_width="300dp"
@@ -66,6 +67,53 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:padding="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:textColor="@color/colorPrimaryDark_Opacity2"
+                                android:gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/drawer_menu_sub_label_0"/>
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.25dp"
+                            android:background="@color/colorPrimaryDark_Opacity2"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:id="@+id/Authorbtn"
+                            android:padding="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <ImageView
+                                android:background="@drawable/ic_info_red_24dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:textColor="@color/colorPrimary"
+                                android:gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="About Author"/>
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0.25dp"
+                            android:background="@color/colorPrimaryDark_Opacity2"/>
+                    </LinearLayout>
                     <!-- menu Start 1 Category -->
                     <LinearLayout
                         android:orientation="vertical"

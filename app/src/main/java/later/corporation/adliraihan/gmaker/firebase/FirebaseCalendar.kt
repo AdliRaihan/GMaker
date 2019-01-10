@@ -27,7 +27,6 @@ class FirebaseCalendar{
     }
 
     fun CompareTwo(FullDateCurrent:String,FullDateTarget:String) : String?{
-            Log.i("FULL DATE " , FullDateTarget)
             var targetDate = "01"
             var targetMonth = "Jan"
             var targetYear = "1900"

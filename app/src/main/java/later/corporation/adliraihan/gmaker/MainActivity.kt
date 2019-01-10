@@ -28,41 +28,30 @@ class MainActivity : AppCompatActivity() {
         var mXiaomi:String? = "Xiaomi"
         Log.i("XIAOMI V:" , android.os.Build.MANUFACTURER)
         if(mXiaomi.equals(android.os.Build.MANUFACTURER) && varNote.equals(0.toString())){
-            var intentComponent = Intent()
             Toast.makeText(this,"Set Autostart pada aplikasi GMaker.",Toast.LENGTH_SHORT).show()
-            intentComponent.setComponent(ComponentName("com.miui.securitycenter","com.miui.permcenter.autostart.AutoStartManagementActivity"))
-            startActivity(intentComponent)
+            Intent().apply {
+                setComponent(
+                    ComponentName("com.miui.securitycenter",
+                        "com.miui.permcenter.autostart.AutoStartManagementActivity"))
+                startActivity(this)
+            }
         }
-        var intf:IntentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply {
-        }
-        registerReceiver(receiver,intf)
-
         if(CurrentUsernameLogon != null){
-            var InterGlobal = Intent(this, FirebaseLandingActivity::class.java)
             Handler().postDelayed({
                 startService(Intent(this, RSSPullService::class.java))
-                startActivity(InterGlobal)
+                startActivity( Intent(this, FirebaseLandingActivity::class.java))
                 this.finish()
             },2000)
         }else{
-            var InterGlobal = Intent(this, FirebaseLoginActivity::class.java)
             Handler().postDelayed({
-                startActivity(InterGlobal)
+                startActivity( Intent(this, FirebaseLoginActivity::class.java))
                 this.finish()
             },2000)
         }
-    }
-
-    fun setNotificationAutoStart(){
-        val getSharedPref = PreferenceManager.getDefaultSharedPreferences(this )
-        val editor = getSharedPref.edit()
-        editor.putString("autostartNotification", 0.toString())
-        editor.commit()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        unregisterReceiver(receiver)
     }
 
 

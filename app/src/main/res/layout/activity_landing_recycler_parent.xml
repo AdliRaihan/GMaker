@@ -1,51 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/GodFatherLandingUserLayout"
+<RelativeLayout android:id="@+id/GodFatherLandingUserLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
     <LinearLayout
         android:background="@color/colorAccent_2"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <LinearLayout
-            android:orientation="vertical"
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/landingHeader_top">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:toolbarId="@+id/toolbar">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:padding="15dp">
-                <TextView
-                    android:id="@+id/username_logged"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="adliraihan001@gmail.com" />
-            </LinearLayout>
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/landingHeader_top">
 
-            <LinearLayout
-                android:id="@+id/menu_drawer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:padding="15dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_menu_white_24dp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:padding="15dp">
+                        <TextView
+                            android:id="@+id/username_logged"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="adliraihan001@gmail.com" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/menu_drawer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:padding="15dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_menu_white_24dp" />
+                    </LinearLayout>
+                </RelativeLayout>
             </LinearLayout>
-        </RelativeLayout>
-    </LinearLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
 
     <ImageView
         android:layout_width="match_parent"
@@ -63,6 +77,15 @@
             android:layout_width="225dp"
             android:layout_height="1dp"
             android:background="@color/colorPrimaryDark_Opacity2"/>
+
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -148,6 +171,7 @@
             </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>
+        </android.support.design.widget.CollapsingToolbarLayout>
 
     <TextView
         android:textAlignment="center"
@@ -183,7 +207,7 @@
                             android:layout_height="match_parent">
                         <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:orientation="vertical"
                                 android:gravity="center|left">
                             <android.support.v7.widget.RecyclerView
