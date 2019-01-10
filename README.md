@@ -1,6 +1,15 @@
 # GMaker
 
-<h2> Status program : sudah dapat digunakan namun ceritanya masih <i>Alpha</i></h2>
+<h2>Open Source</h2>
+<h3>Last Update Source Code 11 Januari 2019</h3>
+<h4>Penandaan</h4>
+<h6>Progress Agenda</h6>
+<p>
+  Dapat digunakan : <b>Ya</b>|70%
+  User Friendly : 50%<br>
+  Fitur : 70%<br>
+  Database : <b>C.R.D</b>
+</p>
 <hr/>
 <i>Tantangan : Buat system pengecekan Koneksi tanpa mendeklarasikan variable</i>
 <code>
