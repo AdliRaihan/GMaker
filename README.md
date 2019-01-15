@@ -13,13 +13,13 @@
 <h4>Penandaan</h4>
 <h6>Progress Agenda</h6>
 <p>
-  Dapat digunakan : <b>Ya</b><br>70%
+  Dapat digunakan : <b>Ya</b> 70%<br>
   User Friendly : 50%<br>
   Fitur : 70%<br>
   Database : <b>C.R.D</b>
 </p>
 <hr/>
-<i>Tantangan : <s>Buat system pengecekan Koneksi tanpa mendeklarasikan variable</s></i>
+<i>Tantangan : Buat system pengecekan Koneksi tanpa mendeklarasikan variable</i>
 <code>
   
     fun CheckConnectivity(Cntx:Context){
@@ -43,7 +43,7 @@
   
   </code>
   
-  <i>Note</i> : Kode tersebut belum saya upload karena jujur codingan saya kurang rapih , kemungkinan besar orang awam malas buat baca kodingannya .
+  <i>Note</i> : <s>Kode tersebut belum saya upload karena jujur codingan saya kurang rapih , kemungkinan besar orang awam malas buat baca kodingannya .</s>
 <hr/>
 <h4>Update Source Code & Apk | 1/5/2019 : 
 <a href="https://github.com/Thibobs/GMaker/releases/tag/1.0.1.00">GMaker 1.0.1.00</a></h4>
