@@ -20,8 +20,7 @@
         }
   
   </code>
-  
-  <i>Note</i> : <s>Kode tersebut belum saya upload karena jujur codingan saya kurang rapih , kemungkinan besar orang awam malas buat baca kodingannya .</s>
+ 
 <hr/>
 <h4>Update Source Code & Apk | 1/5/2019 : 
 <a href="https://github.com/Thibobs/GMaker/releases/tag/1.0.1.00">GMaker 1.0.1.00</a></h4>
