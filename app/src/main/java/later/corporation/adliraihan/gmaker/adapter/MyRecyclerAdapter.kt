@@ -24,9 +24,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.child_seemore_detailpeek.view.*
 import later.corporation.adliraihan.gmaker.R
-import later.corporation.adliraihan.gmaker.firebase.FirebaseCalendar
-import later.corporation.adliraihan.gmaker.firebase.FirebaseDetailActivity
-import later.corporation.adliraihan.gmaker.firebase.FirebaseLandingActivity
+import later.corporation.adliraihan.gmaker.firebase.*
 import java.sql.Time
 import java.util.*
 import kotlin.collections.ArrayList
@@ -73,8 +71,14 @@ class MyRecyclerAdapter(
             val Extansi =
                     LayoutInflater.from(contentData).inflate(R.layout.child_seemore_detailpeek,GodFather,false).apply {
                         HolderDetailPeek.startAnimation((AnimationUtils.loadAnimation(contentData,R.anim.abc_slide_in_top)))
-                        deleteagendaparent_peek.setOnClickListener {
-                            Toast.makeText(contentData,"Are you Sure ?",Toast.LENGTH_SHORT).show()
+                        deleteagendaparent_peek.apply {
+                            setOnClickListener {
+                                var setUser  = FirebaseLoginActivity().FgetSharedPreferenceforWorld(contentData)
+                                var removeDb = Database.variables.dbConnection.getReference( "user_$setUser" + "/account_agenda/${agendaJudul[p1]}")
+                                removeDb
+                                    .removeValue()
+                                Toast.makeText(contentData,"Terhapus ", Toast.LENGTH_SHORT).show()
+                            }
                         }
                         closebtn_peek.setColorFilter(expiredC)
                         closebtn_peek.setBackgroundColor(expiredC)
@@ -90,13 +94,11 @@ class MyRecyclerAdapter(
                     goingC.also {
                         dayLeft.setTextColor(it)
                         dude4.setBackgroundColor(it)
+                        dayLeft.setText("Berlangsung")
                     }
                     Extansi.apply {
-                        dleftdetails_peek.setText("Sedang berlangsung !")
-                        deleteagendaparent_peek.apply {
-                            setText("Tandai Sudah Berakhir")
-                            setTextColor(ContextCompat.getColor(contentData,R.color.colorAccent_2))
-                            setBackgroundColor(expiredC)
+                        dleftdetails_peek.setText("Sedang berlangsung !").apply {
+                            deleteagendaparent_peek.isEnabled = false
                         }
                     }
                 }else if(it!! < 0){
@@ -115,7 +117,6 @@ class MyRecyclerAdapter(
                     dayLeft.setText(it.toString() + " Days Left !")
                     Extansi.dleftdetails_peek.setText("${it} Hari lagi")
                 }
-
                 seemBtn.setOnLongClickListener {
                     GodFather.apply {
                         addView(Extansi)

@@ -85,7 +85,7 @@
     <string name="drawer_menu_done_all">History Activity</string>
     <string name="drawer_menu_delete">Delete History</string>
     <string name="drawer_menu_add">Create Agenda</string>
-    <string name="drawer_menu_premium">Subsribe App</string>
+    <string name="drawer_menu_premium">Subscribe App</string>
     <string name="drawer_menu_addDaily">Add schedule Tomorrow</string>
 
     <string name="note_created_agenda">

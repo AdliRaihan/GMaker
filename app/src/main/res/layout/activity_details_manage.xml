@@ -6,6 +6,7 @@
     android:layout_gravity="center">
 
     <LinearLayout
+            android:padding="20dp"
         android:id="@+id/thisDialogAgendaDetails"
         android:orientation="vertical"
         android:layout_width="350dp"

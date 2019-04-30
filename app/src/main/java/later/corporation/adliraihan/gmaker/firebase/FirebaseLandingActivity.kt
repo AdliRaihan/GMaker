@@ -30,6 +30,10 @@ import later.corporation.adliraihan.gmaker.adapter.MyRecyclerAdapter
 import java.text.SimpleDateFormat
 import java.util.*
 
+import com.pusher.pushnotifications.PushNotifications
+import kotlin.collections.HashMap
+import kotlin.collections.HashSet
+
 class FirebaseLandingActivity : AppCompatActivity(){
 
     private lateinit var recyclerView: RecyclerView
@@ -38,29 +42,12 @@ class FirebaseLandingActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_landing_recycler_parent)
-        initLanding()
-        val menuDrawer = LayoutInflater.from(applicationContext).inflate(R.layout.child_activity_landing_menu,GodFatherLandingUserLayout,false)
-        menu_drawer.setOnClickListener{
-            doOpen(menuDrawer,GodFatherLandingUserLayout)
-
-            menu_drawer.isEnabled = false
-        }
-        forceCreateAgenda.setOnClickListener{
-            finish()
-            var InterGlobal = Intent(applicationContext, FirebaseCreateActivity::class.java)
-            startActivity(InterGlobal)
-        }
-
-
-        //Anim
-        var slideUp_ = AnimationUtils.loadAnimation(this@FirebaseLandingActivity,R.anim.abc_slide_in_top)
-        landingBody.startAnimation(slideUp_)
-        //anim
-
-        initializeAgenda()
-        setBroadcast()
     }
+
+
+    fun setupNotifications() {
+    }
+
     //BROADCAST//
     var FR = FirebaseReceiver()
     fun setBroadcast(){
@@ -108,7 +95,6 @@ class FirebaseLandingActivity : AppCompatActivity(){
                     children.forEach {
                         var CY = Calendar.getInstance().time
                         var CYs = SimpleDateFormat("dd/MMM").format(CY)
-                        Handler().postDelayed({
                             agenda_judul.add(it.child("title").value.toString())
                             agenda_desk.add(it.child("description").value.toString())
                             agenda_time.add(it.child("time").value.toString())
@@ -121,8 +107,6 @@ class FirebaseLandingActivity : AppCompatActivity(){
                                 layoutManager = viewManager
                                 adapter = viewAdapter
                             }
-                        },2500)
-
                         try{
                             if(FirebaseCalendar().getDateMonthFromArray(it.child("date").value.toString()).equals(CYs)) {
                                 println("CYS : $CYs : Full Time ${FirebaseCalendar().getDateMonthFromArray(it.child("date").value.toString())}")
@@ -224,16 +208,19 @@ class FirebaseLandingActivity : AppCompatActivity(){
                 Toast.makeText(this,"Dibuat oleh Adli Raihan \n github.com/Thibobs",Toast.LENGTH_SHORT).show()
             }
             "create"->{
+                this.finish()
                 //finish()
                 startActivity( Intent(applicationContext, FirebaseCreateActivity::class.java).addFlags(FLAG_ACTIVITY_CLEAR_TOP))
             }
             "createdaily"->{
+                this.finish()
                 //finish()
                 startActivity(Intent(applicationContext, CreateDailyActivity::class.java).addFlags(FLAG_ACTIVITY_CLEAR_TOP))
             }
             "account"->{
             }
             "logout"->{
+                this.finish()
                 val getSharedPref = PreferenceManager.getDefaultSharedPreferences(this)
                 val editor = getSharedPref.edit()
                 editor.putString("username",null)

@@ -16,7 +16,7 @@ import android.text.PrecomputedText
 import android.util.Log
 import android.widget.Toast
 
-var TAG = "RECEIVER"
+var TAG = "FIREBASE TOKEN"
 class FirebaseReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val tasksync = Task(goAsync(),intent).execute()
@@ -31,7 +31,6 @@ class FirebaseReceiver : BroadcastReceiver() {
                 if((this != null)&&isConnected){
                     toString().let {
                         log -> Log.i(TAGS,log)
-                        it.append("Connectivity")
                     }
                 }else if(this == null){
                     toString().let {
