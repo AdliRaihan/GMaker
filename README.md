@@ -1,26 +1,4 @@
 # GMaker
-
-<h2>Open Source</h2>
-<h3>Last Update Source Code 11 Januari 2019</h3><br>
-<i>
-  Notification Source Code<br>
-  Broadcast Source Code <br>
-  OOP Function<br>
-  etc<br>
-  </i>
-  
-  
-<h4>Penandaan</h4>
-<h6>Progress Agenda</h6>
-<p>
-  Dapat digunakan : <b>Ya</b> 70%<br>
-  User Friendly : 50%<br>
-  Fitur : 70%<br>
-  Database : <b>C.R.D</b>
-</p>
-<hr/>
-<i>Tantangan : Buat system pengecekan Koneksi tanpa mendeklarasikan variable</i>
-<code>
   
     fun CheckConnectivity(Cntx:Context){
         val TAGS_TEST = "TEST RUN"
@@ -74,9 +52,5 @@
 </table>
 
 <i>seluruh image dapat dilihat  <a href="https://github.com/Thibobs/GMaker/tree/master/aplikasi_image">disini</a><br>
-  jika ada keperluan bisa hubungi saya di email adliraihan002@gmail.com
+  jika ada keperluan bisa hubungi saya di email adliraihan002@gmail.com </i>
   
-  [ENG] i'm currently unemployed and if you have some interest about this project and me... :D you can download my CV <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">Here</a> . 
-  <br><br>
-  [IDN]
- Jika anda mencari seorang programmer android , saya sangat tertarik untuk mengisi posisi tersebut maupun Web App Developer , CV saya dapat didownload <a href="https://drive.google.com/file/d/1aZu-g-dcCRRNkIuIkw8UY6iOQNatvor9/view?usp=sharing">disini</a>
